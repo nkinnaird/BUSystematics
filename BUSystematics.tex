@@ -1,0 +1,43 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[bottom=1in, top=1in]{geometry}
+\input{my_packages}
+
+%==========================================================================%
+% BEGIN
+%==========================================================================%
+
+\title{Systematic Errors in the BU Analysis}
+\author{Nicholas Kinnaird}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	This note serves to document how the systematic errors are evaluated in the BU analysis for the Run~1 publication of the E989 experiment. Most of the systematic errors are calculated in the way described in the authors PhD thesis \cite{phdthesis:2020Kinnaird}, however some of them have been updated. Those which have been updated are explained here briefly with some example plots
+\end{abstract}
+
+% The content of the thesis
+\input{Body/Gain}
+\input{Body/Pileup}
+\input{Body/Losses}
+\input{Body/CBO}
+\input{Body/Ratio}
+
+
+
+% notes: Need to decide what to do about errors that are not calculated in my own analysis but which apply as an error.
+% Should probably include the actual numbers in this document as well in the form of tables for each dataset.
+
+
+
+
+%==========================================================================%
+% Bibliography
+% \newpage
+% \addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography
+
+%==========================================================================%
+\end{document}
