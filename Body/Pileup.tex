@@ -1,6 +1,6 @@
 %!TEX root = ../BUSystematics.tex
 
-\graphicspath{{Body/Figures/Pileup/}{Body/Figures/Pileup/Amplitude/}{Body/Figures/Pileup/TimeShift/}}
+\graphicspath{{Body/Figures/Pileup/}{Body/Figures/Pileup/Amplitude/}{Body/Figures/Pileup/TimeShift/}{Body/Figures/Pileup/EnergyModel/}}
 
 \section{Pileup Systematic Errors}
 
@@ -66,7 +66,7 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
 
 
 
-
+\clearpage
 \subsection{Cluster Time Model}
 
 The time of a constructed doublet in the pileup construction is set as the energy weighted time of the two singlets plus half the gap time. Previously the error was calculated by scanning over an additional time shift and then applying a conservative uncertainty of \ns{2.5}. The results of such a scan can be seen in \figref{fig:PTSscan}. If this procedure is used then the systematic error on \R is less than 15 ppb for all datasets.
@@ -138,33 +138,88 @@ That is however a pretty conservative approach. If I instead use the most energe
 
 
 
-
-
-
-
-
-
+\clearpage
 \subsection{Cluster Energy Model}
+
+The energy of the doublet in the pileup construction is calculated as the sum of the two singlets. This is a fine approximation as the reconstruction usually assigns an energy of any pileup pulse as such, especially when the spatial separation is turned off as it is in Recon West. Previously the systematic error was determined by scanning over a multiplier on the energy sum from 0.9 to 1.1, taking the slope as the sensitivity, and then taking the width of the \chisq as the uncertainty. An example of such a scan is shown in \figref{fig:PESscan}. It was found that the uncertainties as determined from the \chisq ranged from 3 to 6.4\% depending on the dataset (going smaller with more statistics), and corresponding systematic errors of 5-20~ppb. It was found that while some datasets had clear slopes in \R vs the energy scale multplier, some did not.
+
+
+
+\begin{figure}
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TMethod_Chi2_Vs_PileupEnergyScaling_Canv}
+        \caption{T-Method \chisq versus pileup energy scale. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TMethod_R_Vs_PileupEnergyScaling_Canv}
+        \caption{T-Method $R$ versus pileup energy scale. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup energy scale, with units in ppm.}
+    \end{subfigure}
+
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupEnergyScaling_Canv}
+        \caption{R-Method \chisq versus pileup energy scale. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupEnergyScaling_Canv}
+        \caption{R-Method $R$ versus pileup energy scale. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup energy scale, with units in ppm.}
+    \end{subfigure}
+\caption[Pileup energy scale scan]{Pileup energy scale scan. Data are from the 9d dataset.}
+\label{fig:PESscan}
+\end{figure}
+
+
+
+Since simulations however show that the energy resolution is much better than that determined by the \chisq, as shown in \figref{fig:ReconEastDoubletEnergyRatios}, and because of the non-linear slopes in some datasets, the error is instead taken as the max $\Delta R$ when applying a $\pm1\%$ scale factor on the doublet energy. This is only slightly conservative as the maximum ratio difference for energy sums larger than \SI{1.7}{\GeV} is about 1.1\%. Recon West is not expected to be significantly different, and the lack of spatial separation would imply that this ratio would be closer to 1, in the ballpark of 0.5\% or so. The systematic error is given in \tabref{tab:systematicError_clusterEnergyModel}.
+
+
+\begin{figure}
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{p_ratio_2_2_hist}
+        \caption{The ratio of the doublet energy to the sum of the two singlets for two positrons of 2 \GeV.}
+    \end{subfigure}%
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{p_ratio_e1_e2}
+        \caption{The average ratio of the doublet energy to the sum of the two singlets as a function of singlet energies.}
+    \end{subfigure}
+\caption[]{David fired two positrons at the calorimeter using MDC1 and for pileup cases calculated the ratio of the doublet energy to the two singlets. The plot on the left is for one set of energies, and the plot on the right is the average ratio. For low energies the energy can be quite a bit off, for energies above 1.7 \GeV it's more like 1\%. Plots courtesy of David Sweigart.}
+\label{fig:ReconEastDoubletEnergyRatios}
+\end{figure}
+
 
 \begin{table}
 \centering
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+\begin{tabularx}{0.75\linewidth}{@{\extracolsep{\fill}}XYY}
   \hline
     \multicolumn{3}{c}{\textbf{Systematic Error due to Cluster Energy Model}} \\
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
+    60h & 11.0 & 10.9 \\
+    HighKick & 4.8 & 7.2 \\
+    9d & 6.1 & 10.2 \\ 
+    Endgame & 10.0 & 6.8 \\
   \hline
 \end{tabularx}
 \caption[Systematic error due to cluster energy model]{Systematic error due to cluster energy model. Units are in ppb.}
 \label{tab:systematicError_clusterEnergyModel}
 \end{table}
 
+
+
+
+\clearpage
 \subsection{Rate Error}
 
 \begin{table}
@@ -207,6 +262,9 @@ That is however a pretty conservative approach. If I instead use the most energe
 \label{tab:systematicError_unseenPileup}
 \end{table}
 
+
+
+\clearpage
 \subsection{Triple Pileup Correction}
 
 \begin{table}
@@ -252,7 +310,28 @@ That is however a pretty conservative approach. If I instead use the most energe
 % \end{table}
 
 
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=.5\textwidth]{}
+%     \caption[]{}
+%     \label{fig:}
+% \end{figure}
 
 
 
-
+% \begin{figure}
+% \centering
+%     \begin{subfigure}[t]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{}
+%         \caption{}
+%     \end{subfigure}%
+%     \hspace{1cm}
+%     \begin{subfigure}[t]{0.45\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{}
+%         \caption{}
+%     \end{subfigure}
+% \caption[]{}
+% \label{fig:}
+% \end{figure}
