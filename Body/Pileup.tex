@@ -1,6 +1,6 @@
 %!TEX root = ../BUSystematics.tex
 
-\graphicspath{{Body/Figures/Pileup/}{Body/Figures/Pileup/Amplitude/}{Body/Figures/Pileup/TimeShift/}{Body/Figures/Pileup/EnergyModel/}{Body/Figures/Pileup/TriplePileup/}}
+\graphicspath{{Body/Figures/Pileup/}{Body/Figures/Pileup/Amplitude/}{Body/Figures/Pileup/TimeShift/}{Body/Figures/Pileup/EnergyModel/}{Body/Figures/Pileup/TriplePileup/}{Body/Figures/Pileup/RateError/}}
 
 \section{Pileup Systematic Errors}
 
@@ -222,25 +222,44 @@ Since simulations however show that the energy resolution is much better than th
 \clearpage
 \subsection{Rate Error}
 
-\begin{table}
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
-  \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Rate Error}} \\
-  \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
-  \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
-  \hline
-\end{tabularx}
-\caption[Systematic error due to pileup rate error]{Systematic error due to pileup rate error. Units are in ppb.}
-\label{tab:systematicError_pileupRateError}
-\end{table}
+The pileup rate error arises from the fact that the pileup is estimated from pulses at times $t$ and $t+SGT$ and then placed at $t+SGT/2$. Ideally the pileup would have been estimated at those latter times from the beginning. There will be differences due to the muon precession and beam dynamics. Because my SGT is very small at \ns{10}, this error can be expected to be negligible. Using the prescription as outlined in David's thesis \cite{phdthesis:2020Sweigart}, I estimate the pileup rate error as 
 
+\begin{align}
+	\frac{N^{2}(t) - N(t-\frac{SGT}{2})N(t+\frac{SGT}{2})}{N^{2}(t)},
+\end{align}
+where $N(t)$ is the fit function determined from a T-Method fit to the data. $N^{2}(t)$ is what we wanted to use when constructing the pileup, but $N(t-\frac{SGT}{2})N(t+\frac{SGT}{2})$ is what we actually used. The rate error is shown in Figures~\ref{fig:pileupRateError} and \ref{fig:pileupRateErrorZoomed}.
+
+There are some interesting features to point out. The pileup rate error oscillates at \wa and the shape is constant throughout the fill. The black points in the figure come from the nominal fit, where each graph point is calculated and spaced at 149.2/50 ns = 2.984 ns apart. It turns out that there are spikes at the boundaries of the points as defined in the fit function in ROOT. If I fit with 10x the number of points up to 100,000 as shown in the red graph points, the the spikes accordingly shift, and the shape appears to change. This is an effect of the discretization of the points in the ROOT function used to fit the data. The blue points show the average of the black points over a bin width, and as shown lie in line with the red points. Accounting for the discretization then by averaging over the bin width, the pileup rate error can be determined from the blue curve and is seen to only wander a maximum of 0.005\%, or 0.00005, away from 0. This is a negligible change in the rate, and the systematic error is thus taken to be 0 ppb for all datasets. Note that even if the maximum of the black curve were to be taken as the rate error, then it is still less than 0.04\% or 0.0004 and the systematic error would still be negligible.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{PileupRateError}
+    \caption[]{Pileup rate error. Black points come from the nominal fit, which includes 10,000 points in the ROOT fit function. Red points come from a fit function with 100,000 points, and the blue points are the average of the black points over bin widths. Data are from the 60h dataset.}
+    \label{fig:pileupRateError}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{PileupRateError_ZoomedOut}
+    \caption[]{The pileup rate error zoomed out, showing the consistency of the pileup rate error at later times in the fill. Data are from the 60h dataset.}
+    \label{fig:pileupRateErrorZoomed}
+\end{figure}
+
+If instead a gap time of \SI{149.2}{\ns} were to be used, the the pileup rate error is significantly larger as shown in \figref{fig:pileupRateErrorLarger}, oscillating between -0.7\% and 0.3\%. This plot is comparable to David's thesis plot 6.28. Note that spikes can still be seen in the function however due to the discretization, though the relative size of them is much smaller than the rest of the curve.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=.8\textwidth]{PileupRateError_149p2SGT}
+    \caption[]{Pileup rate error when using a gap time of \SI{149.2}{\ns}. Data are from the 60h dataset.}
+    \label{fig:pileupRateErrorLarger}
+\end{figure}
+
+
+
+
+\clearpage
 \subsection{Unseen Pileup}
 
 The systematic error due to unseen pileup is given in \tabref{tab:systematicError_unseenPileup}. They are calculated by ignoring pileup pulses below \SI{100}{\MeV} in the pileup construction, a value which twice as high as the expected missed pulse energies of around \SI{50}{\MeV} or less. If the threshold is raised to \SI{200}{\MeV} then the systematic errors range around in the ballpark from 10-30 ppb.
