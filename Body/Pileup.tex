@@ -1,6 +1,6 @@
 %!TEX root = ../BUSystematics.tex
 
-\graphicspath{{Body/Figures/Pileup/}{Body/Figures/Pileup/Amplitude/}{Body/Figures/Pileup/TimeShift/}{Body/Figures/Pileup/EnergyModel/}}
+\graphicspath{{Body/Figures/Pileup/}{Body/Figures/Pileup/Amplitude/}{Body/Figures/Pileup/TimeShift/}{Body/Figures/Pileup/EnergyModel/}{Body/Figures/Pileup/TriplePileup/}}
 
 \section{Pileup Systematic Errors}
 
@@ -243,6 +243,8 @@ Since simulations however show that the energy resolution is much better than th
 
 \subsection{Unseen Pileup}
 
+The systematic error due to unseen pileup is given in \tabref{tab:systematicError_unseenPileup}. They are calculated by ignoring pileup pulses below \SI{100}{\MeV} in the pileup construction, a value which twice as high as the expected missed pulse energies of around \SI{50}{\MeV} or less. If the threshold is raised to \SI{200}{\MeV} then the systematic errors range around in the ballpark from 10-30 ppb.
+
 \begin{table}
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -252,10 +254,10 @@ Since simulations however show that the energy resolution is much better than th
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
+    60h & 0.8 & 0.6 \\
+    HighKick & 1.3 & 0.1 \\
+    9d & 2.5 & 2.5 \\ 
+    Endgame & 4.1 & 2.4 \\
   \hline
 \end{tabularx}
 \caption[Systematic error due to unseen pileup]{Systematic error due to unseen pileup. Units are in ppb.}
@@ -267,6 +269,20 @@ Since simulations however show that the energy resolution is much better than th
 \clearpage
 \subsection{Triple Pileup Correction}
 
+Triple pileup is not included in my correction. The systematic error for ignoring the triples is estimated by looking at the $\Delta R$ with and without the doubles correction (which can be gotten from the slopes of the pileup multiplier scans extrapolated to 0), multiplied against the rate of triples to doubles. The latter can be approximated by the rate of doubles to singles, a plot of which is given in \figref{fig:pileupRateFraction}. As shown the fraction of the pileup is less than 1\% and decreases throughout the fill. The rate is averaged over the first \gmtwo period in the fit before multiplying against the $\Delta R$. The systematic errors are given in \tabref{tab:systematicError_triplePileupCorrection}. Even these small numbers here are conservative since the rate drops throughout the fill, and would drop even faster for triples to doubles.
+
+
+- should probably add those sensitivities from the multiplier scans to the pileup multiplier section which I can then reference from here
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{pileupRateFraction}
+    \caption[]{Pileup rate fraction plot. Data from the Endgame dataset.}
+    \label{fig:pileupRateFraction}
+\end{figure}
+
+
 \begin{table}
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -276,10 +292,10 @@ Since simulations however show that the energy resolution is much better than th
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
+    60h & 1.9 & 1.6 \\
+    HighKick & 1.3 & 1.2 \\
+    9d & 1.0 & 1.1 \\ 
+    Endgame & 1.6 & 1.3 \\
   \hline
 \end{tabularx}
 \caption[Systematic error due to triple pileup correction]{Systematic error due to triple pileup correction. Units are in ppb.}
