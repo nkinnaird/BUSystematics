@@ -10,10 +10,62 @@ The pileup amplitude error is evaluated by applying a multiplier to the amplitud
     \begin{align}
         \delta R = \sigma_{P_{m}} \times \frac{dR}{dP_{m}},
     \end{align}
-where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows the scan results for the 9d dataset. \tabref{tab:systematicError_pileupMultplier} gives the systematic errors for the Run~1 datasets.
+where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows the scan results for the 9d dataset. \tabref{tab:pileupMultplierScan} show the scan results and \tabref{tab:systematicError_pileupMultplier} gives the systematic errors for the Run~1 datasets.
 
 
-\begin{figure}
+
+
+
+\begin{table}[h]
+\centering
+% \setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.9\linewidth}{XOOOO}
+  \hline
+    \multicolumn{5}{c}{\textbf{Pileup Amplitude Scan Results}} \\
+  \hline\hline
+    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$dR/dP_{m}$} & \multicolumn{1}{c}{$\sigma_{P_{m}}$} & \multicolumn{1}{c}{$P_{m_{\text{min}}}$} \\
+  \hline
+    \multirow{2}{*}{60h} & T & $-353.1$ & 0.061 & 0.981 \\
+                         & R & $-308.3$ & 0.064 & 1.014 \\
+  \hline
+    \multirow{2}{*}{HighKick} & T & $-235.2$ & 0.049 & 0.981 \\
+                              & R & $-217.0$ & 0.053 & 0.982 \\
+  \hline
+    \multirow{2}{*}{9d} & T & $-187.8$ & 0.043 & 0.988 \\
+                        & R & $-217.6$ & 0.046 & 1.002 \\
+  \hline
+    \multirow{2}{*}{Endgame} & T & $-326.4$ & 0.031 & 0.879 \\
+                             & R & $-269.0$ & 0.035 & 0.958\\
+  \hline
+\end{tabularx}
+\caption[]{Sensitivities, widths of \chisq plots, and minima of \chisq plots for the four Run~1 datasets and both fit methods. Units are either unitless or in ppb for the sensitivity.}
+\label{tab:pileupMultplierScan}
+\end{table}
+
+
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.65\linewidth}{XYY}
+  \hline
+    \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Amplitude}} \\
+  \hline\hline
+    Dataset & \thead{T-Method} & \thead{R-Method} \\
+  \hline
+    60h & 21.7 & 19.9 \\
+    HighKick & 11.4 & 11.4 \\
+    9d & 8.1 & 10.1 \\ 
+    Endgame & 10.1 & 9.4 \\
+  \hline
+\end{tabularx}
+\caption[Systematic error due to pileup amplitude]{Systematic error due to the pileup amplitude. Units are in ppb.}
+\label{tab:systematicError_pileupMultplier}
+\end{table}
+
+\begin{figure}[h]
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -44,28 +96,6 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
 
 
 
-\begin{table}
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{XYY}
-  \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to Pileup Amplitude}} \\
-  \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
-  \hline
-    60h & 21.7 & 19.9 \\
-    HighKick & 11.4 & 11.4 \\
-    9d & 8.1 & 10.1 \\ 
-    Endgame & 10.1 & 9.4 \\
-  \hline
-\end{tabularx}
-\caption[Systematic error due to pileup amplitude]{Systematic error due to the pileup amplitude. Units are in ppb.}
-\label{tab:systematicError_pileupMultplier}
-\end{table}
-
-
-
-
 \clearpage
 \subsection{Cluster Time Model}
 
@@ -75,7 +105,7 @@ That is however a pretty conservative approach. If I instead use the most energe
 
 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -93,7 +123,7 @@ That is however a pretty conservative approach. If I instead use the most energe
 \end{figure}
 
 
-\begin{table}
+\begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.85\linewidth}{@{\extracolsep{\fill}}XYY|YY}
@@ -115,7 +145,7 @@ That is however a pretty conservative approach. If I instead use the most energe
 
 
 
-\begin{table}
+\begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
@@ -145,7 +175,7 @@ The energy of the doublet in the pileup construction is calculated as the sum of
 
 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -179,7 +209,7 @@ The energy of the doublet in the pileup construction is calculated as the sum of
 Since simulations however show that the energy resolution is much better than that determined by the \chisq, as shown in \figref{fig:ReconEastDoubletEnergyRatios}, and because of the non-linear slopes in some datasets, the error is instead taken as the max $\Delta R$ when applying a $\pm1\%$ scale factor on the doublet energy. This is only slightly conservative as the maximum ratio difference for energy sums larger than \SI{1.7}{\GeV} is about 1.1\%. Recon West is not expected to be significantly different, and the lack of spatial separation would imply that this ratio would be closer to 1, in the ballpark of 0.5\% or so. The systematic error is given in \tabref{tab:systematicError_clusterEnergyModel}.
 
 
-\begin{figure}
+\begin{figure}[h]
 \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
@@ -197,7 +227,7 @@ Since simulations however show that the energy resolution is much better than th
 \end{figure}
 
 
-\begin{table}
+\begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.75\linewidth}{@{\extracolsep{\fill}}XYY}
@@ -288,13 +318,10 @@ The systematic error due to unseen pileup is given in \tabref{tab:systematicErro
 \clearpage
 \subsection{Triple Pileup Correction}
 
-Triple pileup is not included in my correction. The systematic error for ignoring the triples is estimated by looking at the $\Delta R$ with and without the doubles correction (which can be gotten from the slopes of the pileup multiplier scans extrapolated to 0), multiplied against the rate of triples to doubles. The latter can be approximated by the rate of doubles to singles, a plot of which is given in \figref{fig:pileupRateFraction}. As shown the fraction of the pileup is less than 1\% and decreases throughout the fill. The rate is averaged over the first \gmtwo period in the fit before multiplying against the $\Delta R$. The systematic errors are given in \tabref{tab:systematicError_triplePileupCorrection}. Even these small numbers here are conservative since the rate drops throughout the fill, and would drop even faster for triples to doubles.
+Triple pileup is not included in my correction. The systematic error for ignoring the triples is estimated by looking at the $\Delta R$ with and without the doubles correction (which can be gotten from the slopes of the pileup multiplier scans extrapolated to 0, \tabref{tab:pileupMultplierScan}), multiplied against the rate of triples to doubles. The latter can be approximated by the rate of doubles to singles, a plot of which is given in \figref{fig:pileupRateFraction}. As shown the fraction of the pileup is less than 1\% and decreases throughout the fill. The rate is averaged over the first \gmtwo period in the fit before multiplying against the $\Delta R$, the values are given in \tabref{tab:pileupRates}. The systematic errors are given in \tabref{tab:systematicError_triplePileupCorrection}. Even these small numbers here are conservative since the rate drops throughout the fill, and would drop even faster for triples to doubles.
 
 
-- should probably add those sensitivities from the multiplier scans to the pileup multiplier section which I can then reference from here
-
-
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{pileupRateFraction}
     \caption[]{Pileup rate fraction plot. Data from the Endgame dataset.}
@@ -302,10 +329,30 @@ Triple pileup is not included in my correction. The systematic error for ignorin
 \end{figure}
 
 
-\begin{table}
+\begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}lcc}
+  \hline
+    \multicolumn{3}{c}{\textbf{Pileup Rates}} \\
+  \hline\hline
+    Dataset & Average rate & Max rate \\
+  \hline
+    60h & \num{5.33e-3} & \num{8.50e-3} \\
+    HighKick & \num{5.69e-3} & \num{8.96e-3} \\
+    9d & \num{5.19e-3} & \num{8.32e-3} \\ 
+    Endgame & \num{4.93e-3} & \num{7.78e-3} \\
+  \hline
+\end{tabularx}
+\caption[]{Pileup rates over the first \gmtwo period of the fitting range, averaged and the maximum value respectively.}
+\label{tab:pileupRates}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.75\linewidth}{@{\extracolsep{\fill}}XYY}
   \hline
     \multicolumn{3}{c}{\textbf{Systematic Error due to Triple Pileup Correction}} \\
   \hline\hline
