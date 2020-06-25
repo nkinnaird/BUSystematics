@@ -1,10 +1,25 @@
 %!TEX root = ../BUSystematics.tex
 
-\graphicspath{{Body/Figures/Gain/}}
+\graphicspath{{Body/Figures/Gain/IFG/60h/Amplitude/}{Body/Figures/Gain/IFG/60h/Amplitude-With-AdHoc/}{Body/Figures/Gain/IFG/60h/Lifetime/}{Body/Figures/Gain/IFG/9d/Lifetime/}}
 
 \section{Gain Systematic Errors}
 
+
+- need to compare R vs T method results
+- need to reference the errors used for the amplitude and the lifetime - hit weighted numbers David came up with for some datasets, and standard errors for the other datasets with the fixed tau ltdp
+-record those errors into my table so people know exactly what they are
+- describe the reasoning for the range for the linear fit in the lifetime case - perhaps include figures from other datasets showing the behavior
+- point out that these two errors are highly correlated but I'm being very conservative and adding them in quadrature
+- mention STDP as the results from with vs without the effect - reiterate that with my randomization scheme I don't have to worry about the statistics part as much, briefly mention that I don't have the ability to scan over the effect since I do things at the histogram level - do mention that I use Aaron's gain corrector module to make the trees...
+- decide what I want to do for the ad hoc gain scan and then explain those results, include relevant plots, include updated plots for the IFG scan showing consistency with 1 afteer I have done so
+
+
+
 \subsection{IFG Amplitude}
+
+
+
+
 
 \begin{table}
 \centering
@@ -24,6 +39,9 @@
 \caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
 \label{tab:systematicError_}
 \end{table}
+
+
+
 
 \subsection{IFG Time Constant}
 
@@ -46,6 +64,10 @@
 \label{tab:systematicError_}
 \end{table}
 
+
+
+
+
 \subsection{STDP}
 
 \begin{table}
@@ -66,6 +88,11 @@
 \caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
 \label{tab:systematicError_}
 \end{table}
+
+
+
+
+
 
 
 \subsection{Residual Gain Variation}
