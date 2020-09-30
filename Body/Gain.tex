@@ -5,6 +5,15 @@
 \section{Gain Systematic Errors}
 
 
+
+\cite{GainElog}
+
+
+
+-Describe generalities of gain effects here
+
+
+
 - need to compare R vs T method results
 - need to reference the errors used for the amplitude and the lifetime - hit weighted numbers David came up with for some datasets, and standard errors for the other datasets with the fixed tau ltdp
 -record those errors into my table so people know exactly what they are
@@ -15,9 +24,33 @@
 
 
 
+
+
 \subsection{IFG Amplitude}
 
--new url test
+
+The systematic error due to the IFG amplitude was determined by 
+
+
+
+
+\begin{figure}[h]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IFG_Amplitude_Compare_R}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IFG_Amplitude_Compare_Chisq.png}
+        \caption{}
+    \end{subfigure}
+\caption[Systematic error due to]{Systematic error due to. Data are from the 60h dataset.}
+\label{fig:IFGAmpscan}
+\end{figure}
+
 
 
 
@@ -45,6 +78,30 @@
 
 \subsection{IFG Time Constant}
 
+
+
+\begin{figure}[h]
+\centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IFG_Lifetime_Compare_R}
+        \caption{}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IFG_Lifetime_Compare_Chisq.png}
+        \caption{}
+    \end{subfigure}
+\caption[Systematic error due to]{Systematic error due to. Data are from the 60h dataset.}
+\label{fig:IFGAmpscan}
+\end{figure}
+
+
+
+
+
+
 \begin{table}
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -69,6 +126,11 @@
 
 
 \subsection{STDP}
+
+
+- turned it on and off 
+
+
 
 \begin{table}
 \centering
