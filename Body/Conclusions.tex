@@ -10,3 +10,58 @@ Include total error table here of just my errors (not everybody elses)
 
 - include a reference to David's combination note \cite{CombinationNote} - Table 3 
 - potentially include a reference to the uncertainty spreadsheet \cite{UncertaintySpreadsheet}
+
+
+- make sure this table includes the same information as all the previous ones, and same names for error categories, etc.
+
+\begin{landscape}
+\begin{table}
+% \small
+\footnotesize
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lHHHHHHHH}
+  \hline
+    \multicolumn{9}{c}{\textbf{Total Errors}} \\
+  \hline
+    Quantity & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{HighKick} & \multicolumn{2}{c}{9d} & \multicolumn{2}{c}{Endgame} \\
+    	 	 & \thead{T-Method} & \thead{R-Method} & \thead{T-Method} & \thead{R-Method} & \thead{T-Method} & \thead{R-Method} & \thead{T-Method} & \thead{R-Method} \\
+  \hline
+    Input Clock Stability 			& 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1\\
+    Input Clock Upconversion Factor & 2.1 & 2.1 & 2.1 & 2.1 & 2.1 & 2.1 & 2.1 & 2.1 \\
+    Cluster Time Assignment 		& 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 & 1.0 \\
+  \hdashline
+  % \cdashline{1-9}
+    IFG Amplitude      &  7.8 &  2.7 &  3.3 &  0.5 &  4.5 &  1.5 &  2.4 &  1.0 \\
+    IFG Time Constant  & 20.2 & 11.7 &  9.8 &  3.2 &  5.4 &  0.9 & 13.3 &  6.6 \\
+    STDP Amplitude     &  0.1 &  0.1 &  0.1 &  0.1 &  0.2 &  0.3 &  0.1 &  0.1 \\
+    Residual Gain      & 28.7 & 22.9 & 11.8 & 15.3 & 24.4 & 19.1 & 18.8 &  6.7 \\
+  \hdashline
+    Pileup Amplitude      		&  21.7 & 19.9 & 11.4 & 11.4 &  8.1 & 10.1 & 10.1 &  9.4 \\
+    Pileup Cluster Time Model   &   5.1	&  6.4 &  4.6 &  4.8 &  5.5 &  5.6 &  5.0 &  4.8 \\
+    Pileup Cluster Energy Model &  11.0 & 10.9 &  4.8 &  7.2 &  6.1 & 10.2 & 10.0 &  6.8 \\
+    Unseen Pileup      			&   0.8	&  0.6 &  1.3 &  0.1 &  2.5 &  2.5 &  4.1 &  2.4 \\
+    Triple Pileup Correction    &   1.9	&  1.6 &  1.3 &  1.2 &  1.0 &  1.1 &  1.6 &  1.3 \\
+  \hdashline
+    Muon Loss Time Cuts      		   &  0.3  &  0.3 &  0.1 &  0.1 &  0.1 &  0.1 &  0.1 &  0.1 \\
+    Muon Loss Energy Cuts     		   &  0.5  &  0.3 &  0.1 &  0.1 &  0.1 &  0.1 &  0.1 &  0.5 \\
+    Muon Loss Scale Fixed      		   &  -	   &  0.9 &  -	 &  3.4 &  -   &  3.1 &  -	 &  0.1 \\
+  \hdashline
+    CBO Frequency Change      		   &  10.9 &  5.3 & 22.5 &  0.7 & 21.3 &  1.6 & 22.2 &  8.5 \\
+    CBO Decoherence Envelope Model     &  38.3 &  5.5 &  3.7 &  9.1 & 13.4 &  0.2 & 25.3 & 18.0 \\
+    CBO Time Constants      		   &  10.8 & 10.8 & 23.1 & 21.8 & 23.4 & 30.9 & 10.5 &  9.8 \\
+    CBO Time Constant Fixed      	   &  -    & -    & -	 &  2.8 & -	   &  0.7 & -	 & - \\
+  \hdashline
+    Muon Precession Period      	   &  -	   &  2.3 & -	 & 2.3  & -	   &  2.3 & -	 &  2.3 \\
+    Muon Precession Lifetime      	   &  -	   &  0.1 & -	 & 0.1  & -	   &  0.1 & -	 &  0.1 \\
+  \hdashline
+    Time Randomization Seed      	   &  20.2 & 22.5 & 19.1 & 20.1 & 16.0 & 18.1 & 12.3 & 13.7 \\
+  \hline
+    Total Error & 94. & 63. & 63. & 51. & 73. & 53. & 75. & 48. \\
+  \hline 
+\end{tabular*}
+\caption[]{total errors \cite{CombinationNote}, numbers for EG taken from the 50 us fits, small numbers rounded up to 0.1, the last row is the total error, assuming 100\% correlation between systematic errors in the various categories, \cite{CombinationNote} table 3, rounded to nearest ppb}
+\label{tab:totalErrs}
+\end{table}
+\end{landscape}
