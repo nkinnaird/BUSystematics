@@ -1,0 +1,57 @@
+%!TEX root = ../BUSystematics.tex
+
+\section{Miscellaneous Errors}
+
+
+\section{Clock and Timing Errors}
+
+\begin{table}
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lH}
+  \hline
+    \multicolumn{2}{c}{\textbf{Clock and Timing Errors}} \\
+  \hline
+    Quantity & \thead{Value} \\
+  \hline
+    Input Clock Stability & 0.1 \\
+    Input Clock Upconversion Factor & 2.1 \\
+    Cluster Time Assignment & 1.0 \\
+  \hline 
+\end{tabular*}
+\caption[]{clock errors - same for all datasets and methods - David determined clock errors \cite{phdthesis:2020Sweigart}}
+\label{tab:clockErrs}
+\end{table}
+
+
+- not sure what to cite for the 1 ppb cluster time assignment error
+
+
+
+\section{Randomization}
+
+
+-what about randomization? probably should talk about that some - not really a systematic error but it is if we want to combine results with someone else
+
+- 200 random seeds
+
+\begin{table}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{@{\extracolsep{\fill}}XYY}
+  \hline
+    \multicolumn{3}{c}{\textbf{Systematic Error due to Randomization}} \\
+  \hline\hline
+    Dataset & \thead{T-Method} & \thead{R-Method} \\
+  \hline
+    60h & 20.2 & 22.5 \\
+    HighKick & 19.1 & 20.1 \\
+    9d & 16.0 & 18.1 \\ 
+    Endgame & 10.9 & 12.1 \\
+    Endgame at \mus{50} & 12.3 & 13.7 \\
+  \hline
+\end{tabularx}
+\caption[]{Units are in ppb.}
+\label{tab:systematicError_Rand}
+\end{table}
