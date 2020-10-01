@@ -245,23 +245,83 @@ The systematic error due to the IFG amplitude was determined by
 \subsection{Residual Gain Variation}
 
 
+% -potentially talk about both ways to get the value for the amplitdue, chi2 min and flatten k_loss - and show plots for this
+% -give equation for residual gain and show which values I used, and then cite Aaron's work for the value I used
 
 
-\begin{table}
+
+
+\begin{table}[h]
 \centering
+% \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+\begin{tabularx}{0.9\linewidth}{XHGHG}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
+    \multicolumn{5}{c}{\textbf{Residual Gain Tests}} \\
   \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
+            & \multicolumn{2}{c}{$\chi^{2}_{min}$} & \multicolumn{2}{c}{flat $\kappa_{loss}$} \\
+  \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    Dataset & \multicolumn{1}{c}{$A_{g} \times 10^{-4}$} & \multicolumn{1}{c}{p value} & \multicolumn{1}{c}{$A_{g} \times 10^{-4}$} & \multicolumn{1}{c}{p value} \\
   \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
+    60h & 8.5 & 0.81 & 8.5 & 0.81 \\
+    HighKick & 5.1 & \sim 0 & 7.5 & 0.11 \\
+    9d & 8.4 & 0.17 & 10.0 & 0.25 \\
+    Endgame & 11.2 & \sim 0 & 6.0 & 0.04 \\
   \hline
 \end{tabularx}
-\caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
-\label{tab:systematicError_}
+\caption[]{}
+\label{tab:AdHocGainTests}
 \end{table}
+
+
+\begin{table}[h]
+\centering
+% \setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.9\linewidth}{XOOJ}
+  \hline
+    \multicolumn{4}{c}{\textbf{Systematic Error Due to Residual Gain}} \\
+  \hline\hline
+  %           & \multicolumn{1}{c}{$\chi^{2}_{min}$} & \multicolumn{1}{c}{flat $\kappa_{loss}$} \\
+  % \cmidrule(lr){1-2}\cmidrule(lr){3-4}
+    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$ \chi^{2}_{min} \quad \delta R$} & \multicolumn{1}{c}{flat $\kappa_{loss}$ $\boldsymbol{\delta R}$}  \\
+  \hline
+    \multirow{2}{*}{60h} & T & 28.7 & 28.7 \\
+                         & R & 22.9 & 22.9 \\
+  \hline
+    \multirow{2}{*}{HighKick} & T & 1.0 & 11.8 \\
+                              & R & 1.8 & 15.3 \\
+  \hline
+    \multirow{2}{*}{9d} & T & 18.1 & 24.4 \\
+                        & R & 15.2 & 19.1 \\
+  \hline
+    \multirow{2}{*}{Endgame} & T & 29.9 & 18.8 \\
+                             & R & 8.5 & 6.7 \\
+  \hline
+\end{tabularx}
+\caption[]{}
+\label{tab:AdHocGainErr}
+\end{table}
+
+
+
+
+
+% \begin{table}
+% \centering
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+%   \hline
+%     \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
+%   \hline\hline
+%     Dataset & \thead{T-Method} & \thead{R-Method} \\
+%   \hline
+%     60h & 0.0 & 0.0 \\
+%     HighKick & 0.0 & 0.0 \\
+%     9d & 0.0 & 0.0 \\ 
+%     Endgame & 0.0 & 0.0 \\
+%   \hline
+% \end{tabularx}
+% \caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
+% \label{tab:systematicError_}
+% \end{table}
