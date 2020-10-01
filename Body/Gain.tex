@@ -118,26 +118,6 @@ The systematic error due to the IFG amplitude was determined by
 
 
 
-% \begin{table}
-% \centering
-% \renewcommand{\arraystretch}{1.2}
-% \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
-%   \hline
-%     \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
-%   \hline\hline
-%     Dataset & \thead{T-Method} & \thead{R-Method} \\
-%   \hline
-%     60h & 0.0 & 0.0 \\
-%     HighKick & 0.0 & 0.0 \\
-%     9d & 0.0 & 0.0 \\ 
-%     Endgame & 0.0 & 0.0 \\
-%   \hline
-% \end{tabularx}
-% \caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
-% \label{tab:systematicError_}
-% \end{table}
-
-
 
 
 \subsection{IFG Time Constant}
@@ -215,25 +195,6 @@ The systematic error due to the IFG amplitude was determined by
 \end{table}
 
 
-% \begin{table}
-% \centering
-% \renewcommand{\arraystretch}{1.2}
-% \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
-%   \hline
-%     \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
-%   \hline\hline
-%     Dataset & \thead{T-Method} & \thead{R-Method} \\
-%   \hline
-%     60h & 0.0 & 0.0 \\
-%     HighKick & 0.0 & 0.0 \\
-%     9d & 0.0 & 0.0 \\ 
-%     Endgame & 0.0 & 0.0 \\
-%   \hline
-% \end{tabularx}
-% \caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
-% \label{tab:systematicError_}
-% \end{table}
-
 
 
 
@@ -245,23 +206,33 @@ The systematic error due to the IFG amplitude was determined by
 
 
 
-\begin{table}
+
+
+\begin{table}[h]
 \centering
+% \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+\begin{tabularx}{0.9\linewidth}{XOOK}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
+    \multicolumn{4}{c}{\textbf{STDP Results}} \\
   \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
+    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$\Delta R_{\text{(w/ - w/o)}}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
+    \multirow{2}{*}{60h} & T & 4.8 & 0.1 \\
+                         & R & 2.8 & 0.1 \\
+  \hline
+    \multirow{2}{*}{HighKick} & T & 2.2 & 0.1 \\
+                              & R & 2.2 & 0.1 \\
+  \hline
+    \multirow{2}{*}{9d} & T & 11.2 & 0.2 \\
+                        & R & 14.0 & 0.3 \\
+  \hline
+    \multirow{2}{*}{Endgame} & T & 3.9 & 0.1 \\
+                             & R & 5.0 & 0.1 \\
   \hline
 \end{tabularx}
-\caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
-\label{tab:systematicError_}
+\caption[]{}
+\label{tab:systematicError_STDP}
 \end{table}
 
 
@@ -270,7 +241,11 @@ The systematic error due to the IFG amplitude was determined by
 
 
 
+
 \subsection{Residual Gain Variation}
+
+
+
 
 \begin{table}
 \centering
