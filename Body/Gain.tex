@@ -23,13 +23,13 @@
   \hline
     Quantity & \thead{60h} & \thead{HighKick} & \thead{9d} & \thead{Endgame} \\
   \hline
-    IFG Amplitude      & 21.4 & 17.2  & 15.3  & 11.0 \\
-    IFG Time Constant  & 16.1 & 13.2 & 11.5 & 7.5 \\
+    IFG Amplitude      & 21.4 & 6.3 & 15.3  & 3.7 \\
+    IFG Time Constant  & 16.1 & 6.5 & 11.5 & 6.5 \\
     STDP Amplitude     & 1.9 & 1.9 & 1.9 & 1.9 \\
     STDP Time Constant & 3.4  & 3.4 & 3.4 & 3.4 \\
   \hline 
 \end{tabular*}
-\caption[]{Average uncertainties on the crystal gain correction parameters, weighted by the number of counts put into the T-Method histogram, as determined by D. Sweigart, left side of Table 6.5 \cite{phdthesis:2020Sweigart}. Original data can be found in \cite{GainElog1,GainElog2,GainElog3,GainElog4}. In general the uncertainties on the IFG parameters decreased with statistics, as more laser data was acquired with which to determine the constants. All STDP parameters were the same as calculated from the same STDP laser data. The author calculated the average (not hit-weighted) uncertainties, and found less than a percent difference in each case. Units are in percent.}
+\caption[]{Average uncertainties on the crystal gain correction parameters, weighted by the number of counts put into the T-Method histogram, as determined by D. Sweigart, left side of Table 6.5 \cite{phdthesis:2020Sweigart} for 60h and 9d datasets, and personal communication/spreadsheet for the HK and EG datasets \cite{UncertaintySpreadsheet} (which used the tau ltdp). Original data can be found in \cite{GainElog1,GainElog2,GainElog3,GainElog4}. All STDP parameters were the same as calculated from the same STDP laser data. The author calculated the average (not hit-weighted) uncertainties, and found less than a percent difference in each case. Units are in percent.}
 \label{tab:gainCorrErrs}
 \end{table}
 
@@ -87,24 +87,55 @@ The systematic error due to the IFG amplitude was determined by
 
 
 
-\begin{table}
+
+\begin{table}[h]
 \centering
+% \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+\begin{tabularx}{0.9\linewidth}{XOOJ}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
+    \multicolumn{4}{c}{\textbf{IFG Amplitude Scan Results}} \\
   \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
+    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$dR/dA_{ifg}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
+    \multirow{2}{*}{60h} & T & 36.4 & 7.8 \\
+                         & R & 12.7 & 2.7 \\
+  \hline
+    \multirow{2}{*}{HighKick} & T & 52.1 & 3.3 \\
+                              & R & 8.4 & 0.5 \\
+  \hline
+    \multirow{2}{*}{9d} & T & 29.6 & 4.5 \\
+                        & R & 9.7 & 1.5 \\
+  \hline
+    \multirow{2}{*}{Endgame} & T & 64.0 & 2.4 \\
+                             & R & 27.9 & 1.0 \\
   \hline
 \end{tabularx}
-\caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
-\label{tab:systematicError_}
+\caption[]{}
+\label{tab:IFGampScan}
 \end{table}
+
+
+
+
+% \begin{table}
+% \centering
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+%   \hline
+%     \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
+%   \hline\hline
+%     Dataset & \thead{T-Method} & \thead{R-Method} \\
+%   \hline
+%     60h & 0.0 & 0.0 \\
+%     HighKick & 0.0 & 0.0 \\
+%     9d & 0.0 & 0.0 \\ 
+%     Endgame & 0.0 & 0.0 \\
+%   \hline
+% \end{tabularx}
+% \caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
+% \label{tab:systematicError_}
+% \end{table}
 
 
 
@@ -154,24 +185,54 @@ The systematic error due to the IFG amplitude was determined by
 - should I include the awkward looking 9d plot here?
 
 
-\begin{table}
+
+
+\begin{table}[h]
 \centering
+% \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+\begin{tabularx}{0.9\linewidth}{XOOK}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
+    \multicolumn{4}{c}{\textbf{IFG Time Constant Scan Results}} \\
   \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
+    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$dR/d\tau_{ifg}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
-    60h & 0.0 & 0.0 \\
-    HighKick & 0.0 & 0.0 \\
-    9d & 0.0 & 0.0 \\ 
-    Endgame & 0.0 & 0.0 \\
+    \multirow{2}{*}{60h} & T & 125.6 & 20.2 \\
+                         & R & 72.6 & 11.7 \\
+  \hline
+    \multirow{2}{*}{HighKick} & T & 150.4 & 9.8 \\
+                              & R & 49.7 & 3.2 \\
+  \hline
+    \multirow{2}{*}{9d} & T & 46.9 & 5.4 \\
+                        & R & 8.2 & 0.9 \\
+  \hline
+    \multirow{2}{*}{Endgame} & T & 204.5 & 13.3 \\
+                             & R & 101.3 & 6.6 \\
   \hline
 \end{tabularx}
-\caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
-\label{tab:systematicError_}
+\caption[]{}
+\label{tab:IFGtauScan}
 \end{table}
+
+
+% \begin{table}
+% \centering
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
+%   \hline
+%     \multicolumn{3}{c}{\textbf{Systematic Error due to}} \\
+%   \hline\hline
+%     Dataset & \thead{T-Method} & \thead{R-Method} \\
+%   \hline
+%     60h & 0.0 & 0.0 \\
+%     HighKick & 0.0 & 0.0 \\
+%     9d & 0.0 & 0.0 \\ 
+%     Endgame & 0.0 & 0.0 \\
+%   \hline
+% \end{tabularx}
+% \caption[Systematic error due to]{Systematic error due to. Units are in ppb.}
+% \label{tab:systematicError_}
+% \end{table}
 
 
 
