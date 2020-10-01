@@ -26,6 +26,7 @@ Include total error table here of just my errors (not everybody elses)
     \multicolumn{9}{c}{\textbf{Total Errors}} \\
   \hline
     Quantity & \multicolumn{2}{c}{60h} & \multicolumn{2}{c}{HighKick} & \multicolumn{2}{c}{9d} & \multicolumn{2}{c}{Endgame} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
     	 	 & \thead{T-Method} & \thead{R-Method} & \thead{T-Method} & \thead{R-Method} & \thead{T-Method} & \thead{R-Method} & \thead{T-Method} & \thead{R-Method} \\
   \hline
     Input Clock Stability 			& 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1\\
@@ -65,3 +66,28 @@ Include total error table here of just my errors (not everybody elses)
 \label{tab:totalErrs}
 \end{table}
 \end{landscape}
+
+
+
+\begin{table}
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{@{\extracolsep{\fill}}Xcc}
+  \hline
+    \multicolumn{3}{c}{\textbf{Final R Values}} \\
+  \hline\hline
+    Dataset & \thead{T-Method} & \thead{R-Method} \\
+  \hline
+    60h      & $-28.80 \pm 1.36 \pm 0.09$ & $-28.97 \pm 1.36 \pm 0.06$ \\
+    HighKick & $-27.04 \pm 1.16 \pm 0.06$ & $-27.21 \pm 1.16 \pm 0.05$ \\
+    9d       & $-27.92 \pm 0.93 \pm 0.07$ & $-27.92 \pm 0.93 \pm 0.05$ \\ 
+    Endgame  & $-27.70 \pm 0.76 \pm 0.08$ & $-27.77 \pm 0.76 \pm 0.05$ \\
+  \hline
+\end{tabularx}
+\caption[]{Units are in ppm, values rouned to neares 0.01 ppm. Commonly blinded, statistical then systematic, EG at 50 us, differences in R value can be from different field values}
+\label{tab:FinalRValues}
+\end{table}
+
+
+
+
