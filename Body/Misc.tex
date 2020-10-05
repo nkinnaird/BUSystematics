@@ -1,9 +1,43 @@
 %!TEX root = ../BUSystematics.tex
 
-\section{Miscellaneous Errors}
+\graphicspath{{Body/Figures/Ratio/}}
+
+\section{Miscellaneous Uncertainties}
 
 
-\section{Clock and Timing Errors}
+
+\subsection{Ratio Construction Systematic Uncertainties}
+
+In the Ratio Method the \gmtwo period and the muon lifetime are taken to be known a priori. If the parameters are incorrectly chosen then it is possible there will be a systematic shift on \R. See Section 5.5.5 in \refref{phdthesis:2020Kinnaird} for a full description of the techniques used to estimate the sensitivities of \R to these two parameters, and the expected uncertainties in the parameters. The uncertainties on the period and lifetime are \SI{21.7}{ppm} and \SI{<10}{ns} respectively, and the sensitivities in the various datasets are given in \tabref{tab:ratioConstructionParsScan}. Multiplying the sensitivities to the \gmtwo period by the uncertainty, the systematic Uncertainties are 0.7, 2.3, 0.9, and \ppb{1.0} for the 60h, HighKick, 9d, and Endgame datasets respectively. Since there is no reason the datasets should treat this parameter differently, the largest number at 2.3 ppb is taken as the sysetmatic error for all datasets. Regarding the systematic error for the choice of muon lifetime, the slopes are so small and the error on the lifetime is so small such that the systematic error is completely negligible, and is taken to be 0 for all datasets.
+
+
+
+\begin{table}
+\centering
+\setlength\tabcolsep{20pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.7\linewidth}{@{\extracolsep{\fill}}lcHH}
+  \hline
+    \multicolumn{4}{c}{\textbf{Sensitivity to Ratio Construction Parameters}} \\
+  \hline\hline
+    Dataset & & \multicolumn{1}{c}{$dR/d_{T_{a}}$} & \multicolumn{1}{c}{$dR/d_{\tau_{\mu}}$} \\
+  \hline
+    60h & & 0.034 & -1.336 \\
+    HighKick & & -0.105 & -5.914 \\
+    9d & & 0.042 & 0.546 \\ 
+    Endgame & & 0.044 & 1.705 \\
+  \hline
+\end{tabular*}
+\caption[Sensitivities of $R$ to ratio construction parameters]{Sensitivities of $R$ to ratio construction parameters. $dR/d_{T_{a}}$ is in units of ppb/ppm, while $dR/d_{\tau_{\mu}}$ is in units of \SI{}{ppb/ \micro s}. In both cases the sensitivities are extremely small.}
+\label{tab:ratioConstructionParsScan}
+\end{table}
+
+
+
+
+
+
+\subsection{Clock and Timing Uncertainties}
 
 \begin{table}
 \centering
@@ -11,7 +45,7 @@
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lH}
   \hline
-    \multicolumn{2}{c}{\textbf{Clock and Timing Errors}} \\
+    \multicolumn{2}{c}{\textbf{Clock and Timing Uncertainties}} \\
   \hline
     Quantity & \thead{Value} \\
   \hline
@@ -29,7 +63,7 @@
 
 
 
-\section{Randomization}
+\subsection{Randomization}
 
 
 -what about randomization? probably should talk about that some - not really a systematic error but it is if we want to combine results with someone else
