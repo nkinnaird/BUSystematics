@@ -8,7 +8,7 @@
 \subsection{Frequency Change}
 
 
-The systematic error due to the fixed CBO frequency model is calculated as the \DR with the Tracker Station 12 vs Tracker Station 18 parameters. These parameters are given in \refref{CBOFreqTrackingElog}, and the Endgame parameters are shown in \figref{fig:CBOFreq}. \tabref{tab:systematicError_CBOFreq} gives the systematic errors.
+The systematic uncertainty due to the fixed CBO frequency model is calculated as the \DR with the Tracker Station 12 vs Tracker Station 18 parameters. These parameters are given in \refref{CBOFreqTrackingElog}, and the Endgame parameters are shown in \figref{fig:CBOFreq}. \tabref{tab:systematicError_CBOFreq} gives the systematic uncertainties.
 
 The HighKick and 9d Ratio results are less affected, presumably because the lifetime is fixed in those fits and there is a correlation.
 
@@ -26,7 +26,7 @@ The HighKick and 9d Ratio results are less affected, presumably because the life
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to CBO Frequency}} \\
+    \multicolumn{3}{c}{\textbf{Systematic Uncertainty due to CBO Frequency}} \\
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
@@ -36,7 +36,7 @@ The HighKick and 9d Ratio results are less affected, presumably because the life
     Endgame & 22.2 & 8.5 \\
   \hline
 \end{tabularx}
-\caption[Systematic error due to CBO frequency]{Systematic error due to CBO frequency. Units are in ppb.}
+\caption[]{Systematic uncertainty due to CBO frequency. Units are in ppb.}
 \label{tab:systematicError_CBOFreq}
 \end{table}
 
@@ -47,7 +47,7 @@ The HighKick and 9d Ratio results are less affected, presumably because the life
 \subsection{Decoherence Envelope}
 
 
-The systematic error from the CBO decoherence envelope was estimated by introducing a constant $C$ in the CBO function part of the fit equation and then looking at the \DR. This constant was allowed to float...
+The systematic uncertainty from the CBO decoherence envelope was estimated by introducing a constant $C$ in the CBO function part of the fit equation and then looking at the \DR. This constant was allowed to float...
 
 
 might want to include figure of amplitude shape like in thesis showing the C constant is a reasonable adjustment
@@ -91,7 +91,7 @@ might want to include figure of amplitude shape like in thesis showing the C con
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{\linewidth}{@{\extracolsep{\fill}}XYY}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to CBO Decoherence Envelope}} \\
+    \multicolumn{3}{c}{\textbf{Systematic Uncertainty due to CBO Decoherence Envelope}} \\
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
@@ -102,7 +102,7 @@ might want to include figure of amplitude shape like in thesis showing the C con
     Endgame at \mus{50} & 25.3 & 18.0 \\
   \hline
 \end{tabularx}
-\caption[Systematic error due to CBO decoherence envelope]{Systematic error due to CBO decoherence envelope. Units are in ppb.}
+\caption[]{Systematic uncertainty due to CBO decoherence envelope. Units are in ppb.}
 \label{tab:systematicError_CBOenvelope}
 \end{table}
 
@@ -111,7 +111,7 @@ might want to include figure of amplitude shape like in thesis showing the C con
 \clearpage
 \subsection{Time Constants}
 
-In the fit function the N, asymmetry, and phase terms all have CBO modifications to them, where there are new cbo amplitude and phase paramters for each parameter. The lifetime is typically fixed to be the same in all cases. However it has been claimed that the CBO lifetime on the asymmetry and phase CBO terms could be as much as 50\% different from that of the N term. In order to evaluate a systematic error due to this possibility, fits were redone by applying multipliers of 0.5 and 1.5 in the various combinations to the respective lifetimes, for a total of 4 new fits for each dataset. The maximum \DR seen from any of the combinations was then taken as the systematic error on \R. Typically the combinations of 0.5 and 1.5 produced the largest changes, as opposed to both being 0.5 or 1.5.
+In the fit function the N, asymmetry, and phase terms all have CBO modifications to them, where there are new cbo amplitude and phase paramters for each parameter. The lifetime is typically fixed to be the same in all cases. However it has been claimed that the CBO lifetime on the asymmetry and phase CBO terms could be as much as 50\% different from that of the N term. In order to evaluate a systematic uncertainty due to this possibility, fits were redone by applying multipliers of 0.5 and 1.5 in the various combinations to the respective lifetimes, for a total of 4 new fits for each dataset. The maximum \DR seen from any of the combinations was then taken as the systematic uncertainty on \R. Typically the combinations of 0.5 and 1.5 produced the largest changes, as opposed to both being 0.5 or 1.5.
 
 
 
@@ -131,8 +131,8 @@ In the fit function the N, asymmetry, and phase terms all have CBO modifications
     Endgame & -8.2 & 5.4 & \multicolumn{1}{K}{-10.5} & 3.2 \\
   \hline
 \end{tabularx}
-\caption[]{\DR's for the various multiplier combinations for the T-Method fits. Multipliers are on the asymmetry and phase CBO lifetime respectively. The absolute value of the bold elements are taken as the systematic errors for the various datasets. Units are in ppb.}
-\label{tab:systematicError_}
+\caption[]{\DR's for the various multiplier combinations for the T-Method fits. Multipliers are on the asymmetry and phase CBO lifetime respectively. The absolute value of the bold elements are taken as the systematic uncertainties for the various datasets. Units are in ppb.}
+\label{tab:systematicError_CBOtimeconstants_T}
 \end{table}
 
 
@@ -152,8 +152,8 @@ In the fit function the N, asymmetry, and phase terms all have CBO modifications
     Endgame & -6.9 & 5.0 & \multicolumn{1}{K}{-9.8} & 2.3 \\
   \hline
 \end{tabularx}
-\caption[]{\DR's for the various multiplier combinations for the R-Method fits. Multipliers are on the asymmetry and phase CBO lifetime respectively. The absolute value of the bold elements are taken as the systematic errors for the various datasets. Units are in ppb.}
-\label{tab:systematicError_}
+\caption[]{\DR's for the various multiplier combinations for the R-Method fits. Multipliers are on the asymmetry and phase CBO lifetime respectively. The absolute value of the bold elements are taken as the systematic uncertainties for the various datasets. Units are in ppb.}
+\label{tab:systematicError_CBOtimeconstants_R}
 \end{table}
 
 
@@ -163,7 +163,7 @@ In the fit function the N, asymmetry, and phase terms all have CBO modifications
 \clearpage
 \subsection{Time Constants Fixed}
 
-In the HighKick and 9d datasets the CBO lifetimes in the R-Method fits are fixed to those from corresponding T-Method fits, since otherwise the fits do not like to converge to a nice value. In order to determine a systematic error from this fixed parameter, the sensitivity of \R to this fixed parameter was determined, and then multiplied against the T-Method fit error on the parameter. The scans are shown in \figref{fig:CBOfixedLifetime}. The scan results and systematic error are shown in \tabref{tab:systematicError_FixedCBOLifetime}.
+In the HighKick and 9d datasets the CBO lifetimes in the R-Method fits are fixed to those from corresponding T-Method fits, since otherwise the fits do not like to converge to a nice value. In order to determine a systematic uncertainty from this fixed parameter, the sensitivity of \R to this fixed parameter was determined, and then multiplied against the T-Method fit uncertainty on the parameter. The scans are shown in \figref{fig:CBOfixedLifetime}. The scan results and systematic uncertainty are shown in \tabref{tab:systematicError_FixedCBOLifetime}.
 
 
 
@@ -190,7 +190,7 @@ In the HighKick and 9d datasets the CBO lifetimes in the R-Method fits are fixed
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XccY}
   \hline
-    \multicolumn{4}{c}{\textbf{Systematic Error due to fixed CBO lifetime}} \\
+    \multicolumn{4}{c}{\textbf{Systematic Uncertainty due to fixed CBO lifetime}} \\
   \hline\hline
     Dataset & \thead{$dR/d\tau_{cbo}$} & \thead{T-Method $\sigma_{\tau_{cbo}}$} & \thead{R-Method \dR} \\
   \hline
@@ -198,6 +198,6 @@ In the HighKick and 9d datasets the CBO lifetimes in the R-Method fits are fixed
     9d & 0.04 & 16.3 & 0.7 \\ 
   \hline
 \end{tabularx}
-\caption[Systematic error due to fixed CBO lifetime]{Systematic error due to fixed CBO lifetime. Units are in ppb for the error. Units are ppb per microsecond and microsecond for the other two quantities.}
+\caption[]{Systematic uncertainty due to fixed CBO lifetime. Units are in ppb for the uncertainty. Units are ppb per microsecond and microsecond for the other two quantities.}
 \label{tab:systematicError_FixedCBOLifetime}
 \end{table}
