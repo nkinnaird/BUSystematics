@@ -5,9 +5,25 @@
 \section{Gain Systematic Uncertainties}
 
 
+The detected positon energies are corrected for in-fill, short-term, and out-of-fill gain corrections (IFG, STDP, OOF) \cite[and references therein]{GainNote}. Uncertainties in the IFG and STDP corrections will propagate into uncertainties on the extracted \wa values\footnote{The OOF correction acts on time scales much larger than a fill, and so does not add a systematic uncertainty.}. For the 60h and 9d datasets, the corrections went as \{OOF, STDP, IFG\}, whereas for the HighKick and Endgame datasets, the corrections went as \{STDP, OOF, IFG\}. A laser system was used to determine these corrections and the parameters associated with them. 
 
--Describe generalities of gain effects here
 
+
+
+Lastly, a systematic uncertainty due to the application of a residual or ad-hoc gain correction which fixes some issues in the analysis is evaluated.
+
+
+
+
+
+
+\subsection{IFG Amplitude and Time Constant}
+
+The IFG correction is given by
+\begin{align}
+  E_{t} = E_{m}/(1 - A_{IFG} e^{-t/\tau_{IFG}}),
+\end{align}
+where $E_{t}$ is the true energy of the detected positron, $E_{m}$ is it's measured energy, and then $A_{IFG}$ and $\tau_{IFG}$ are the amplitude and time constant parameters used in the parameterization of the IFG gain correction. The systematic uncertainties due to the uncertainties in the amplitude and time constant are evaluated by scanning over those parameters in multiplicative steps, determining the senstivity of \R to the 
 
 
 
@@ -36,30 +52,19 @@
 
 
 
+
+
+
 % Keep in mind that for HighKick and Endgame the crystal gain lifetime parameters were fixed to tau_ltdp, using the same study. 
 
 % For HighKick and Endgame the corrections go as STDP, OOF, IFG. 
 % For 60h and 9d the corrections go as OOF, STDP, IFG.
 
-% HighKick had some steps in the CTAGs.
 
 
 
 
 
-% - need to compare R vs T method results
-% - need to reference the errors used for the amplitude and the lifetime - hit weighted numbers David came up with for some datasets, and standard errors for the other datasets with the fixed tau ltdp
-% -record those errors into my table so people know exactly what they are
-% - describe the reasoning for the range for the linear fit in the lifetime case - perhaps include figures from other datasets showing the behavior
-% - point out that these two errors are highly correlated but I'm being very conservative and adding them in quadrature
-% - mention STDP as the results from with vs without the effect - reiterate that with my randomization scheme I don't have to worry about the statistics part as much, briefly mention that I don't have the ability to scan over the effect since I do things at the histogram level - do mention that I use Aaron's gain corrector module to make the trees...
-% - decide what I want to do for the ad hoc gain scan and then explain those results, include relevant plots, include updated plots for the IFG scan showing consistency with 1 afteer I have done so
-
-
-
-
-
-\subsection{IFG Amplitude}
 
 
 The systematic error due to the IFG amplitude was determined by 
@@ -119,8 +124,6 @@ The systematic error due to the IFG amplitude was determined by
 
 
 
-
-\subsection{IFG Time Constant}
 
 
 - range from 0.8 to 1.5, determined from inspection of the various datasets, and then made the same for all datasets.
@@ -202,7 +205,13 @@ The systematic error due to the IFG amplitude was determined by
 \subsection{STDP}
 
 
+
+
 - turned it on and off 
+
+
+% - mention STDP as the results from with vs without the effect - reiterate that with my randomization scheme I don't have to worry about the statistics part as much, briefly mention that I don't have the ability to scan over the effect since I do things at the histogram level - do mention that I use Aaron's gain corrector module to make the trees...
+
 
 
 
@@ -244,10 +253,12 @@ The systematic error due to the IFG amplitude was determined by
 
 \subsection{Residual Gain Variation}
 
+% applied to the cluster energies in order to 
 
 % -potentially talk about both ways to get the value for the amplitdue, chi2 min and flatten k_loss - and show plots for this
 % -give equation for residual gain and show which values I used, and then cite Aaron's work for the value I used
 % did energy bin fits with T method, only main CBO parameters, applied various ad hoc gain amplitudes to try and flatten out the spectrum
+% - decide what I want to do for the ad hoc gain scan and then explain those results, include relevant plots, include updated plots for the IFG scan showing consistency with 1 afteer I have done so
 
 
 \begin{figure}[h]
