@@ -70,7 +70,7 @@ The uncertainties in the IFG (and STDP) parameters are given in \tabref{tab:gain
         \includegraphics[width=\textwidth]{IFG_Amplitude_Compare_Chisq}
         % \caption{}
     \end{subfigure}
-\caption[]{\R (left) and \chisq (right) versus the multiplier on the IFG amplitude parameter, for the T- and R-Methods. The sensitivities of \R to the parameter is determined by fitting a line to the points in the range 0--2, and the extracted values are included in the plot in units of ppm per unit amplitude. It should be noted that the fluctuations in the points are statistical in nature. As shown the sensitivity of the R-Method to the IFG amplitude is less than that of the T-Method. Data are from the 60h dataset.}
+\caption[]{\R (left) and \chisq (right) versus the multiplier on the IFG amplitude parameter, for the T- and R-Methods. The sensitivities of \R to the parameter is determined by fitting a line to the points in the range 0--2, and the extracted values are included in the plot in units of ppm per unit amplitude. It should be noted that the fluctuations in the points are statistical in nature. As shown the sensitivity of the R-Method to the IFG amplitude is less than that of the T-Method. For the \chisq plot, the T-Method forms a parabola and finds a minimum far from the nominal multiplier of 1, which is evidence for the need for a residual gain correction, \secref{sub:residual_gain_correction}. The R-Method with it's reduced sensitivity does not form a parabola. Data are from the 60h dataset.}
 \label{fig:IFGAmpscan}
 \end{figure}
 
@@ -193,13 +193,18 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
 
 
 \subsection{Residual Gain Correction}
+\label{sub:residual_gain_correction}
 
-% applied to the cluster energies in order to 
 
-% -potentially talk about both ways to get the value for the amplitdue, chi2 min and flatten k_loss - and show plots for this
-% -give equation for residual gain and show which values I used, and then cite Aaron's work for the value I used
-% did energy bin fits with T method, only main CBO parameters, applied various ad hoc gain amplitudes to try and flatten out the spectrum
-% - decide what I want to do for the ad hoc gain scan and then explain those results, include relevant plots, include updated plots for the IFG scan showing consistency with 1 afteer I have done so
+In Run~1 (and potentially for future runs) there were several pieces of evidence that pointed towards the need for a residual or ad-hoc gain correction. These included fit start time scans for the $N$, $\tau_{\mu}$, and \K parameters which fell outside the $1\sigma$ allowed difference bands, IFG amplitude scans which found minima far from the nominal multiplier of 1 (see \figref{fig:IFGAmpscan}), and the \K versus energy spectra which falls at high energies as opposed to remaining constant \cite{phdthesis:2019Fienberg,phdthesis:2020Sweigart,AdHoc1,AdHoc2}. A. Fienberg proposed an additional gain correction with the form
+\begin{align}
+  E_{c} = E_{m} \cdot (1 + A_{g} e^{-t/\tau_{\mu}} (1 + 0.2 \cos(\omega_{a}t + \phi))),
+\end{align}
+where $E_{c}$ is the corrected energy of the detected positron, $E_{m}$ is it's measured energy, and $A_{g}$ is the amplitude of the correction. The asymmetry value of 0.2 on the oscillatory part was determined as the ``overall asymmetry of the energy-weighted hit rate'' \cite{phdthesis:2019Fienberg}. \taumu was set to the nominal time-dilate muon lifetime of \SI{64440}{\mus{}}, while \wa and $\phi$ were set to those values determined to fits to the different datasets without the residual gain correction.
+
+
+By applying this residual gain correction to the cluster energies with the right amplitude, each of the aforementioned issues disappears. Two ways were utilized to determine what the value of the amplitude should be. The first is doing a scan over the amplitude as in the IFG amplitude and finding the minum, as shown in \figref{fig:AdHocGainScan}\footnote{Scans over the asymmetry value were also performed, and minima were found which agreed with the nominal value of 0.2.}. The second, more physically motivated way, was to determine the amplitude as that which flattened out the \K versus energy spectrum. This was done by performing energy bin fits using the T-Method, with just the main CBO parameters included in the fit, as shown in \figref{fig:EBinKloss}. Depending on dataset, the amplitudes for both these procedures had values of 0.5--1$\times 10^{-4}$. For the 60h dataset, the amplitudes were the same for both ways, for the HighKick and 9d datasets, the amplitude was greater for the flat \K procedure, and smaller for the Endgame dataset.
+
 
 
 \begin{figure}[h]
@@ -207,19 +212,19 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_Chi2_Vs_AdHocAmplitude_Canv}
-        \caption{T-Method \chisq versus pileup multiplier. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
+        \caption{T-Method \chisq versus residual gain amplitude. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_R_Vs_AdHocAmplitude_Canv}
-        \caption{T-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm.}
+        \caption{T-Method $R$ versus residual gain amplitude. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the residual gain amplitude, with units in ppm.}
     \end{subfigure}
 
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_AdHocAmplitude_Canv}
-        \caption{R-Method \chisq versus pileup multiplier. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
+        \caption{R-Method \chisq versus residual gain amplitude. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
     \begin{subfigure}[t]{0.45\textwidth}
@@ -227,11 +232,9 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_AdHocAmplitude_Canv}
         \caption{R-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm.}
     \end{subfigure}
-\caption[]{Fix all captions. Data are from the 60h dataset.}
+\caption[]{Residual gain amplitude scan. Data are from the 60h dataset.}
 \label{fig:AdHocGainScan}
 \end{figure}
-
-
 
 
 
@@ -241,44 +244,42 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_EBin_Canv_HK-0}
-        \caption{}
+        \caption{HighKick dataset, $A_{g} = 0$, no residual gain applied.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_EBin_Canv_HK-5p1}
-        \caption{}
+        \caption{HighKick dataset, $A_{g} = 5.1 \times 10^{-4}$, amplitude set to that from the \chisq minima.}
     \end{subfigure}
     \hspace{1cm}
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_EBin_Canv_HK-7p5}
-        \caption{}
+        \caption{HighKick dataset, $A_{g} = 7.5 \times 10^{-4}$, amplitude set to that which flattened out the \K spectrum (approximately).}
     \end{subfigure}
 
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_EBin_Canv_EG-0}
-        \caption{}
+        \caption{Endgame dataset, $A_{g} = 0$, no residual gain applied.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_EBin_Canv_EG-11p2}
-        \caption{}
+        \caption{Endgame dataset, $A_{g} = 11.2 \times 10^{-4}$, amplitude set to that from the \chisq minima.}
     \end{subfigure}
     \hspace{1cm}
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_EBin_Canv_EG-6p0}
-        \caption{}
+        \caption{Endgame dataset, $A_{g} = 6.0 \times 10^{-4}$, amplitude set to that which flattened out the \K spectrum (approximately).}
     \end{subfigure}
-\caption[]{}
+\caption[]{\K versus energy bin, for the HighKick (top) and Endgame (bottom) datasets, with different values for the residual gain amplitude $A_{g}$. }
 \label{fig:EBinKloss}
 \end{figure}
 \end{landscape}
-
-
 
 
 
@@ -300,9 +301,18 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
     Endgame & 11.2 & \sim 0 & 6.0 & 0.04 \\
   \hline
 \end{tabularx}
-\caption[]{}
+\caption[]{Residual gain amplitudes as determined from the \chisq minima or flat \K procedures. P values are given for a straight fit line to the \K versus energy bin spectra from \SIrange{1.1}{3.1}{\GeV} after applying the residual gain correction with those same amplitudes.}
 \label{tab:AdHocGainTests}
 \end{table}
+
+
+
+\tabref{tab:AdHocGainErr} gives the \DR values when applying the residual gain correction. These \DR values with minus without the correction are taken conservatively as the systematic uncertainty due to the potential need for such a residual gain correction. Because the flat \K procedure is more physically motivated, the associated values are taken as the final systematic uncertainties. As shown the systematic uncertainties range up to about 30~ppb depending on the dataset, and is one of the larger systematic uncertainties in the analysis.
+
+
+As a last note, it should immediately be apparent that the \K energy spectrum was not perfectly flat, even with the residual gain correction applied. Beyond random statistical fluctuations, it rises up at high energy bins, and no $A_{g}$ value was found which could better flatten out the spectrum. This is understood to be an effect of the pileup correction applied, potentially due to the lack of triples included in the correction. With a better pileup algorithm, this effect should go away. Because the systematic uncertainty is taken conservatively as the \DR value with minus without the correction applied, this was deemed acceptable for the Run~1 analysis.
+
+
 
 
 \begin{table}[h]
@@ -311,9 +321,9 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.9\linewidth}{XOOJ}
   \hline
-    \multicolumn{4}{c}{\textbf{Systematic Error Due to Residual Gain}} \\
+    \multicolumn{4}{c}{\textbf{Systematic Uncertainty Due to Residual Gain}} \\
   \hline\hline
-    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$ \chi^{2}_{min} \quad \delta R$} & \multicolumn{1}{c}{flat $\kappa_{loss}$ $\boldsymbol{\delta R}$}  \\
+    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$ \chi^{2}_{min} \quad \Delta R$} & \multicolumn{1}{c}{flat $\kappa_{loss}$ $\boldsymbol{\Delta R}$}  \\
   \hline
     \multirow{2}{*}{60h} & T & 28.7 & 28.7 \\
                          & R & 22.9 & 22.9 \\
