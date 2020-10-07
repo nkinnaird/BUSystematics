@@ -126,7 +126,7 @@ The uncertainties in the IFG (and STDP) parameters are given in \tabref{tab:gain
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.9\linewidth}{XcYKYK}
   \hline
-    \multicolumn{6}{c}{\textbf{IFG Amplitude Scan Results}} \\
+    \multicolumn{6}{c}{\textbf{IFG Systematic Uncertainties}} \\
   \hline\hline
     Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$dR/dA_{IFG}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R_{A_{IFG}}}$} & \multicolumn{1}{c}{$dR/d\tau_{IFG}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R_{\tau_{IFG}}}$} \\
   \hline
@@ -155,25 +155,16 @@ The uncertainties in the IFG (and STDP) parameters are given in \tabref{tab:gain
 \subsection{STDP}
 
 
-
-
-- turned it on and off 
-
-
-% - mention STDP as the results from with vs without the effect - reiterate that with my randomization scheme I don't have to worry about the statistics part as much, briefly mention that I don't have the ability to scan over the effect since I do things at the histogram level - do mention that I use Aaron's gain corrector module to make the trees...
-
-
-
-
+The systematic uncertainty due to the STDP correction was evaluated by turning the STDP correction entirely off before reclustering the hits. The changed in \R, \DR, was multiplied by the uncertainty in STDP amplitude as given in \tabref{tab:gainCorrErrs} to determine the uncertainty. The Run~1 analysis did not have the capability to scan over the STDP parameters as was done for the IFG, hence the single point chosen with an amplitude of 0\footnote{This is being fixed for future analyses.}. It should be noted that because of the nature of how the randomization is applied in the BU analysis, the change in \R was completely disassociated from any randomization effects, and is solely due to the change in gain. \tabref{tab:systematicError_STDP} gives the \DR's with the STDP turned off, along with the systematic uncertainties for the four datasets and both fit methods. As shown the systematic uncertainties are entirely negligible at less than 1~ppb. Because the systematic uncertainties were so small, a systematic uncertainty regarding the STDP lifetime was not evaluated.
 
 
 \begin{table}[h]
 \centering
 % \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.9\linewidth}{XOOK}
+\begin{tabularx}{0.7\linewidth}{XOOK}
   \hline
-    \multicolumn{4}{c}{\textbf{STDP Results}} \\
+    \multicolumn{4}{c}{\textbf{STDP Systematic Uncertainties}} \\
   \hline\hline
     Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$\Delta R_{\text{(w/ - w/o)}}$} & \multicolumn{1}{c}{$\boldsymbol{\delta R}$} \\
   \hline
@@ -190,7 +181,7 @@ The uncertainties in the IFG (and STDP) parameters are given in \tabref{tab:gain
                              & R & 5.0 & 0.1 \\
   \hline
 \end{tabularx}
-\caption[]{}
+\caption[]{Changes in \R with versus without the STDP effect applied for both fit methods for all four datasets, along with the associated systematic uncertainties. These uncertainties were evalued by multiplying the \DR's by the error on the STDP amplitude as given in \tabref{tab:gainCorrErrs}. Units are in ppb.}
 \label{tab:systematicError_STDP}
 \end{table}
 
