@@ -276,7 +276,7 @@ By applying this residual gain correction to the cluster energies with the right
         \includegraphics[width=\textwidth]{TMethod_kappa_loss_Vs_EBin_Canv_EG-6p0}
         \caption{Endgame dataset, $A_{g} = 6.0 \times 10^{-4}$, amplitude set to that which flattened out the \K spectrum (approximately).}
     \end{subfigure}
-\caption[]{\K versus energy bin, for the HighKick (top) and Endgame (bottom) datasets, with different values for the residual gain amplitude $A_{g}$. }
+\caption[]{\K versus energy bin, for the HighKick (top) and Endgame (bottom) datasets, with different values for the residual gain amplitude $A_{g}$. \K falls off as a function of energy which is one of the pieces of evidence for the need of a residual gain correction. At low energies \K rises, which is understood to be due to noise hits which increases the lost muon spectra at those energies.}
 \label{fig:EBinKloss}
 \end{figure}
 \end{landscape}
@@ -319,11 +319,11 @@ As a last note, it should immediately be apparent that the \K energy spectrum wa
 \centering
 % \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.9\linewidth}{XOOJ}
+\begin{tabularx}{0.8\linewidth}{XOOK}
   \hline
     \multicolumn{4}{c}{\textbf{Systematic Uncertainty Due to Residual Gain}} \\
   \hline\hline
-    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$ \chi^{2}_{min} \quad \Delta R$} & \multicolumn{1}{c}{flat $\kappa_{loss}$ $\boldsymbol{\Delta R}$}  \\
+    Dataset & \thead{Fit Method} & \multicolumn{1}{c}{$\chi^{2}_{min}$ $\Delta R$} & \multicolumn{1}{c}{flat $\kappa_{loss}$ $\boldsymbol{\Delta R}$}  \\
   \hline
     \multirow{2}{*}{60h} & T & 28.7 & 28.7 \\
                          & R & 22.9 & 22.9 \\
@@ -338,7 +338,7 @@ As a last note, it should immediately be apparent that the \K energy spectrum wa
                              & R & 8.5 & 6.7 \\
   \hline
 \end{tabularx}
-\caption[]{}
+\caption[]{Systematic uncertainties due to residual gain, with an applied amplitude determined from either the minimum of a \chisq scan or that which flattened out the \K versus energy spectra. The latter column is bold since those numbers are those which are taken as the systematic uncertainties. In general both procedures produce the same order of magnitude systematic uncertainties, except for the HighKick where the latter procedure produces larger values. Units are in ppb.}
 \label{tab:AdHocGainErr}
 \end{table}
 
