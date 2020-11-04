@@ -188,10 +188,6 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
 
 
 
-
-
-
-
 \subsection{Residual Gain Correction}
 \label{sub:residual_gain_correction}
 
@@ -205,6 +201,28 @@ where $E_{c}$ is the corrected energy of the detected positron, $E_{m}$ is it's 
 
 By applying this residual gain correction to the cluster energies with the right amplitude, each of the aforementioned issues disappears. Two procedures were utilized to determine what the value of the amplitude should be. The first was by doing a scan over the residual gain amplitude, as in the IFG amplitude, and finding the minimum, as shown in \figref{fig:AdHocGainScan}\footnote{Scans over the asymmetry value were also performed, and minima were found which agreed with the nominal value of 0.2.}. The second, more physically motivated procedure, was to determine the amplitude as that which flattened out the \K versus energy spectrum. This was done by performing energy bin fits using the T-Method, including just the main CBO parameters in the fit, as shown in \figref{fig:EBinKloss}. Depending on dataset, the amplitudes for both these procedures had values of 0.5--1$\times 10^{-3}$. The \chisq procedure produced an equal amplitude to that of the flag \K procedure for the 60h dataset, higher amplitudes for the HighKick and 9d datasets, and a smaller amplitude for the Endgame dataset. \tabref{tab:AdHocGainTests} compares directly the the different amplitudes between the two procedures, and the associated p-values as determined from straight line fits in the range \SIrange{1.1}{3.1}{\GeV} after applying the residual gain correction with the associated amplitudes. 
 
+
+\begin{table}[h]
+\centering
+% \setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.7\linewidth}{XHGHG}
+  \hline
+    \multicolumn{5}{c}{\textbf{Residual Gain Tests}} \\
+  \hline\hline
+            & \multicolumn{2}{c}{$\chi^{2}_{min}$} & \multicolumn{2}{c}{flat $\kappa_{loss}$} \\
+  \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    Dataset & \multicolumn{1}{c}{$A_{g} \times 10^{-4}$} & \multicolumn{1}{c}{p value} & \multicolumn{1}{c}{$A_{g} \times 10^{-4}$} & \multicolumn{1}{c}{p value} \\
+  \hline
+    60h & 8.5 & 0.81 & 8.5 & 0.81 \\
+    HighKick & 5.1 & \sim 0 & 7.5 & 0.11 \\
+    9d & 8.4 & 0.17 & 10.0 & 0.25 \\
+    Endgame & 11.2 & \sim 0 & 6.0 & 0.04 \\
+  \hline
+\end{tabularx}
+\caption[]{Residual gain amplitudes as determined from the \chisq minima or flat \K procedures. p-values are given for a straight fit line to the \K versus energy bin spectra from \SIrange{1.1}{3.1}{\GeV} after applying the residual gain correction with the respective amplitudes in the table.}
+\label{tab:AdHocGainTests}
+\end{table}
 
 
 \begin{figure}[h]
@@ -283,27 +301,7 @@ By applying this residual gain correction to the cluster energies with the right
 
 
 
-\begin{table}[h]
-\centering
-% \setlength\tabcolsep{10pt}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.7\linewidth}{XHGHG}
-  \hline
-    \multicolumn{5}{c}{\textbf{Residual Gain Tests}} \\
-  \hline\hline
-            & \multicolumn{2}{c}{$\chi^{2}_{min}$} & \multicolumn{2}{c}{flat $\kappa_{loss}$} \\
-  \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-    Dataset & \multicolumn{1}{c}{$A_{g} \times 10^{-4}$} & \multicolumn{1}{c}{p value} & \multicolumn{1}{c}{$A_{g} \times 10^{-4}$} & \multicolumn{1}{c}{p value} \\
-  \hline
-    60h & 8.5 & 0.81 & 8.5 & 0.81 \\
-    HighKick & 5.1 & \sim 0 & 7.5 & 0.11 \\
-    9d & 8.4 & 0.17 & 10.0 & 0.25 \\
-    Endgame & 11.2 & \sim 0 & 6.0 & 0.04 \\
-  \hline
-\end{tabularx}
-\caption[]{Residual gain amplitudes as determined from the \chisq minima or flat \K procedures. p-values are given for a straight fit line to the \K versus energy bin spectra from \SIrange{1.1}{3.1}{\GeV} after applying the residual gain correction with the respective amplitudes in the table.}
-\label{tab:AdHocGainTests}
-\end{table}
+
 
 
 

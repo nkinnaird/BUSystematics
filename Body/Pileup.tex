@@ -4,22 +4,44 @@
 
 \section{Pileup}
 
-
-- describe generality of pileup correction here, don't go into too much detail on it though
-- I use ``I'' throughout the text a lot here, I need to change all of that
+The pileup correction used in the BU analysis is the asymmetric shadow window method. Extensive details can be found in \refref{phdthesis:2020Kinnaird}; here is given a brief summary. A pileup correction is constructed by looking in time windows some time after ``trigger'' pulses for trailing ``shadow'' pulses. The assumption is that the probability for a pileup event to occur is the same as that to find a shadow pulse trailing a trigger pulse in the right length time window. By looking in all such time (or shadow) windows for all trigger pulses and constructing ``shadow doublets,'' a pileup correction is constructed and then applied to the data. The length of the shadow window is called the ``shadow dead time,'' and the gap time between the trigger pulse time and the start of the shadow window is called the ``shadow gap time.''  \tabref{tab:pileupParameters} gives the parameter values for the pileup parameters. The shadow gap time of \ns{10} was chosen to be suitably small such that the event rate was marginally different from the real pileup rate at the trigger pulse time. The shadow dead time of \ns{4.06} was determined by scanning over shadow dead times and finding the value at which the ratio of pileup energies over measured energies in the range \SIrange{3.5}{4.5}{\GeV} was equal to 1, where pileup doublets make up almost the entirety of the counts\footnote{This value of \ns{4.06} is a direct effect of the clustering dead time of 3~cts applied to the Run~1 datasets for ReconWest. With this shadow dead time applied in the procedure, no additional nominal multiplier beyond 1 is applied to the pileup amplitude as was done in the author's dissertation, or other shadow methods.}. On a separate but important note, in the final analysis no local artificial dead time was applied to the incoming clusters. This is in comparison to the analysis done for the dissertation in which an artifical dead time of \ns{5} was applied to the incoming clusters \cite{phdthesis:2020Kinnaird}.
 
 
+\begin{table}[h]
+\centering
+% \setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.4\linewidth}{lc}
+  \hline
+    \multicolumn{2}{c}{\textbf{Pileup Parameters}} \\
+  \hline\hline
+    Parameter & \thead{Value} \\
+  \hline
+    Shadow dead time & 4.06~ns \\
+    Shadow gap time $(T_{G})$ & 10~ns \\ 
+    Pileup energy scaling $(C)$ & 1 \\
+  \hline
+\end{tabularx}
+\caption[]{}
+\label{tab:pileupParameters}
+\end{table}
 
+
+The time and energy models for the shadow pileup construction are given as
          \begin{gather}
             E_{\text{doublet}} = C \cdot (E_{\rm T} + E_{\rm S}), \label{eq:Edoublet} \\
-            t_{\text{doublet}} = \frac{t_{\rm T} \cdot E_{\rm T} + (t_{\rm S}-T_{G}) \cdot E_{\rm S}}{E_{\rm T} + E_{\rm S}} + \frac{T_{G}}{2}. \label{eq:tdoublet}
+            t_{\text{doublet}} = \frac{t_{\rm T} \cdot E_{\rm T} + (t_{\rm S}-T_{G}) \cdot E_{\rm S}}{E_{\rm T} + E_{\rm S}} + \frac{T_{G}}{2}, \label{eq:tdoublet}
         \end{gather}
+where $E_{\text{doublet}}$ and $t_{\text{doublet}}$ are the energies and times of the constructed shadow doublets, and $E_{T}$, $E_{S}$, $t_{T}$, $t_{S}$, are the energies and times of the trigger and shadow pulses respectively. $C$ is an energy scaling parameter with a nominal value of 1, and $T_{G}$ is the shadow gap time. The energy of the constructed shadow doublet is simply the sum of the two singlets, while the time is the energy weighted time of the two singlets plus a time-shift of $\frac{T_{G}}{2}$, accounting for the fact that combining two pulses with a shift of $T_{G}$ between them is most representative (approximately) of the pileup rate with a time-shift of $t+T_{G}/2$.
+
+
+Systematic uncertainties arise primarily from uncertainties in the pileup correction amplitude, as well as the time and energy models used. Others include uncertainties due to the pileup rate, unseen pileup, and the omission of triples in the correction. No systematic uncertainty was evaluated in regards to an artificial dead time since none was applied in the analysis beyond that in the clustering.
 
 
 
 \subsection{Amplitude}
 
-The pileup amplitude uncertainty is evaluated by applying a multiplier to the amplitude of the pileup correction and refitting. Multipliers were applied in steps of 0.01 from 0.9 to 1.1, and the resulting R vs pileup multiplier plot is fit to determine the sensitivity of \R to the pileup multiplier. The uncertainty in the multiplier is determined as the width of the parabola in the \chisq vs the pileup multiplier. The systematic uncertainty on \R is then calculated as 
+The pileup amplitude uncertainty is evaluated by applying a multiplier to the amplitude of the pileup correction and refitting. Multipliers were applied in steps of 0.01 from 0.9 to 1.1, and the resulting R vs pileup multiplier plot is fit to determine the sensitivity of \R to the pileup multiplier. The uncertainty in the multiplier was determined as the width of the parabola in the \chisq vs the pileup multiplier. The systematic uncertainty on \R is then calculated as 
     \begin{align}
         \delta R = \sigma_{P_{m}} \times \frac{dR}{dP_{m}},
     \end{align}
@@ -64,7 +86,7 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.65\linewidth}{XYY}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Uncertainties due to Pileup Amplitude}} \\
+    \multicolumn{3}{c}{\textbf{Pileup Amplitude Systematic Uncertainties}} \\
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
@@ -110,7 +132,7 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
 
 
 \clearpage
-\subsection{Cluster Time Model}
+\subsection{Time Model}
 
 The time of a constructed doublet in the pileup construction is set as the energy weighted time of the two singlets plus half the gap time. Previously the uncertainty was calculated by scanning over an additional time shift and then applying a conservative uncertainty of \ns{2.5}. The results of such a scan can be seen in \figref{fig:PTSscan}. If this procedure is used then the systematic uncertainty on \R is less than 15 ppb for all datasets.
 
@@ -139,12 +161,13 @@ That is however a pretty conservative approach. If I instead use the most energe
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.85\linewidth}{@{\extracolsep{\fill}}XYY|YY}
+\begin{tabularx}{0.85\linewidth}{@{\extracolsep{\fill}}XYYYY}
   \hline
     \multicolumn{5}{c}{$\Delta R$ with first and last singlet times} \\
   \hline\hline
-            & \multicolumn{2}{c|}{T-Method} & \multicolumn{2}{c}{R-Method } \\
-    Dataset & \thead{First Time} & \multicolumn{1}{c|}{Last Time} & \thead{First Time} & \thead{Last Time}  \\
+            & \multicolumn{2}{c}{T-Method} & \multicolumn{2}{c}{R-Method } \\
+            \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    Dataset & \thead{First Time} & \multicolumn{1}{c}{Last Time} & \thead{First Time} & \thead{Last Time}  \\
   \hline
     60h & -5.5 & 4.6 & -8.0 & 4.8 \\
     HighKick & -5.0 & 4.3 & -5.6 & 4.0 \\
@@ -163,7 +186,7 @@ That is however a pretty conservative approach. If I instead use the most energe
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Uncertainty due to Cluster Time Model}} \\
+    \multicolumn{3}{c}{\textbf{Time Model Systematic Uncertainty}} \\
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
@@ -182,7 +205,7 @@ That is however a pretty conservative approach. If I instead use the most energe
 
 
 \clearpage
-\subsection{Cluster Energy Model}
+\subsection{Energy Model}
 
 The energy of the doublet in the pileup construction is calculated as the sum of the two singlets. This is a fine approximation as the reconstruction usually assigns an energy of any pileup pulse as such, especially when the spatial separation is turned off as it is in Recon West. Previously the systematic uncertainty was determined by scanning over a multiplier on the energy sum from 0.9 to 1.1, taking the slope as the sensitivity, and then taking the width of the \chisq as the uncertainty. An example of such a scan is shown in \figref{fig:PESscan}. It was found that the uncertainties as determined from the \chisq ranged from 3 to 6.4\% depending on the dataset (going smaller with more statistics), and corresponding systematic uncertainties of 5-20~ppb. It was found that while some datasets had clear slopes in \R vs the energy scale multplier, some did not.
 
@@ -245,7 +268,7 @@ Since simulations however show that the energy resolution is much better than th
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{0.75\linewidth}{@{\extracolsep{\fill}}XYY}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Uncertainty due to Cluster Energy Model}} \\
+    \multicolumn{3}{c}{\textbf{Energy Model Systematic Uncertainty}} \\
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
