@@ -4,7 +4,7 @@
 
 \section{Pileup}
 
-The pileup correction used in the BU analysis is the asymmetric shadow window method. Extensive details can be found in \refref{phdthesis:2020Kinnaird}; here is given a brief summary. A pileup correction is constructed by looking in time windows some time after ``trigger'' pulses for trailing ``shadow'' pulses. The assumption is that the probability for a pileup event to occur is the same as that to find a shadow pulse trailing a trigger pulse in the right length time window. By looking in all such time (or shadow) windows for all trigger pulses and constructing ``shadow doublets,'' a pileup correction is constructed and then applied to the data. The length of the shadow window is called the ``shadow dead time,'' and the gap time between the trigger pulse time and the start of the shadow window is called the ``shadow gap time.''  \tabref{tab:pileupParameters} gives the parameter values for the pileup parameters. The shadow gap time of \ns{10} was chosen to be suitably small such that the event rate was marginally different from the real pileup rate at the trigger pulse time. The shadow dead time of \ns{4.06} was determined by scanning over shadow dead times and finding the value at which the ratio of pileup energies over measured energies in the range \SIrange{3.5}{4.5}{\GeV} was equal to 1, where pileup doublets make up almost the entirety of the counts\footnote{This value of \ns{4.06} is a direct effect of the clustering dead time of 3~cts applied to the Run~1 datasets for ReconWest. With this shadow dead time applied in the procedure, no additional nominal multiplier beyond 1 is applied to the pileup amplitude as was done in the author's dissertation, or other shadow methods.}. On a separate but important note, in the final analysis no local artificial dead time was applied to the incoming clusters. This is in comparison to the analysis done for the dissertation in which an artifical dead time of \ns{5} was applied to the incoming clusters \cite{phdthesis:2020Kinnaird}.
+The pileup correction used in the BU analysis is the asymmetric shadow window method. Extensive details can be found in \refref{phdthesis:2020Kinnaird}; here is given a brief summary. A pileup correction is constructed by looking in ``shadow'' time windows some time after ``trigger'' pulses for trailing shadow pulses. The assumption is that the probability for a pileup event to occur is the same as that to find a shadow pulse trailing a trigger pulse in the right length time window. By looking in all such shadow windows for all trigger pulses and constructing ``shadow doublets,'' a pileup correction is constructed and then applied to the data. The length of the shadow window is called the ``shadow dead time,'' and the gap time between the trigger pulse time and the start of the shadow window is called the ``shadow gap time.''  \tabref{tab:pileupParameters} gives the parameter values for the pileup parameters. The shadow gap time of \ns{10} was chosen to be suitably small such that the event rate was marginally different from the real pileup rate at the trigger pulse time. The shadow dead time of \ns{4.06} was determined by scanning over shadow dead times and finding the value at which the ratio of pileup energies over measured energies in the range \SIrange{3.5}{4.5}{\GeV} was equal to 1, where pileup doublets make up almost the entirety of the counts\footnote{This value of \ns{4.06} is a direct effect of the clustering dead time of 3~cts applied to the Run~1 datasets for ReconWest. With this shadow dead time applied in the procedure, no additional nominal multiplier beyond 1 is applied to the pileup amplitude as was done in the author's dissertation, or other shadow methods.}. On a separate but important note, in the final analysis no local artificial dead time was applied to the incoming clusters. This is in comparison to the analysis done for the dissertation in which an artifical dead time of \ns{5} was applied to the incoming clusters \cite{phdthesis:2020Kinnaird}.
 
 
 \begin{table}[h]
@@ -28,11 +28,11 @@ The pileup correction used in the BU analysis is the asymmetric shadow window me
 
 
 The time and energy models for the shadow pileup construction are given as
-         \begin{gather}
+        \begin{gather}
             E_{\text{doublet}} = C \cdot (E_{\rm T} + E_{\rm S}), \label{eq:Edoublet} \\
             t_{\text{doublet}} = \frac{t_{\rm T} \cdot E_{\rm T} + (t_{\rm S}-T_{G}) \cdot E_{\rm S}}{E_{\rm T} + E_{\rm S}} + \frac{T_{G}}{2}, \label{eq:tdoublet}
         \end{gather}
-where $E_{\text{doublet}}$ and $t_{\text{doublet}}$ are the energies and times of the constructed shadow doublets, and $E_{T}$, $E_{S}$, $t_{T}$, $t_{S}$, are the energies and times of the trigger and shadow pulses respectively. $C$ is an energy scaling parameter with a nominal value of 1, and $T_{G}$ is the shadow gap time. The energy of the constructed shadow doublet is simply the sum of the two singlets, while the time is the energy weighted time of the two singlets plus a time-shift of $\frac{T_{G}}{2}$, accounting for the fact that combining two pulses with a shift of $T_{G}$ between them is most representative (approximately) of the pileup rate with a time-shift of $t+T_{G}/2$.
+where $E_{\text{doublet}}$ and $t_{\text{doublet}}$ are the energies and times of the constructed shadow doublets, and $E_{T}$, $E_{S}$, $t_{T}$, $t_{S}$, are the energies and times of the trigger and shadow pulses respectively. $C$ is an energy scaling parameter with a nominal value of 1, and $T_{G}$ is the shadow gap time. The energy of the constructed shadow doublet is simply the sum of the two singlets, while the time is the energy weighted time of the two singlets plus a time-shift of $\frac{T_{G}}{2}$. This time-shift accounts for the fact that combining two pulses with a shift of $T_{G}$ between them is most representative (approximately) of the pileup rate with a time-shift of $T_{G}/2$ on the constructed shadow doublet.
 
 
 Systematic uncertainties arise primarily from uncertainties in the pileup correction amplitude, as well as the time and energy models used. Others include uncertainties due to the pileup rate, unseen pileup, and the omission of triples in the correction. No systematic uncertainty was evaluated in regards to an artificial dead time since none was applied in the analysis beyond that in the clustering.
@@ -41,11 +41,11 @@ Systematic uncertainties arise primarily from uncertainties in the pileup correc
 
 \subsection{Amplitude}
 
-The pileup amplitude uncertainty is evaluated by applying a multiplier to the amplitude of the pileup correction and refitting. Multipliers were applied in steps of 0.01 from 0.9 to 1.1, and the resulting R vs pileup multiplier plot is fit to determine the sensitivity of \R to the pileup multiplier. The uncertainty in the multiplier was determined as the width of the parabola in the \chisq vs the pileup multiplier. The systematic uncertainty on \R is then calculated as 
+The pileup amplitude uncertainty was evaluated by applying multipliers to the amplitude of the pileup correction, and refitting the data. Multipliers were applied in steps of 0.01 from 0.9 to 1.1, and the resulting \R vs pileup multiplier plot was fit to determine the sensitivity of \R to the pileup multiplier. The uncertainty in the multiplier was determined as the width of the parabola in the \chisq vs pileup multiplier plot. The systematic uncertainty on \R was then calculated as 
     \begin{align}
         \delta R = \sigma_{P_{m}} \times \frac{dR}{dP_{m}},
     \end{align}
-where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows the scan results for the 9d dataset. \tabref{tab:pileupMultplierScan} show the scan results and \tabref{tab:systematicError_pileupMultplier} gives the systematic uncertainties for the Run~1 datasets.
+where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows the scan results for the 9d dataset. \tabref{tab:pileupMultplierScan} show the scan results and \tabref{tab:systematicError_pileupMultplier} gives the systematic uncertainties for each of the Run~1 datasets.
 
 
 
@@ -55,7 +55,7 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
 \centering
 % \setlength\tabcolsep{10pt}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.9\linewidth}{XOOOO}
+\begin{tabularx}{0.7\linewidth}{XOOOO}
   \hline
     \multicolumn{5}{c}{\textbf{Pileup Amplitude Scan Results}} \\
   \hline\hline
@@ -74,17 +74,15 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
                              & R & $-269.0$ & 0.035 & 0.958 \\
   \hline
 \end{tabularx}
-\caption[]{Sensitivities, widths of \chisq plots, and minima of \chisq plots for the four Run~1 datasets and both fit methods. Units are either unitless or in ppb for the sensitivity.}
+\caption[]{Results for pileup amplitude multiplier scans for the four Run~1 datasets for both fit methods. Include are the sensitivities of \R to the pileup multiplier, uncertainty on the amplitude as determined from the width of the \chisq parabolas, and the pileup multiplier for which the \chisq was a minimum. The sensitivities are in units of ppb per unit multiplier (or just ppb), and the rest of the quantities are unitless.}
 \label{tab:pileupMultplierScan}
 \end{table}
-
-
 
 
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{XYY}
+\begin{tabularx}{0.6\linewidth}{XYY}
   \hline
     \multicolumn{3}{c}{\textbf{Pileup Amplitude Systematic Uncertainties}} \\
   \hline\hline
@@ -96,9 +94,10 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
     Endgame & 10.1 & 9.4 \\
   \hline
 \end{tabularx}
-\caption[]{Systematic uncertainty due to the pileup amplitude. Units are in ppb.}
+\caption[]{Systematic uncertainties due to the pileup amplitude. Units are in ppb.}
 \label{tab:systematicError_pileupMultplier}
 \end{table}
+
 
 \begin{figure}[h]
 \centering
@@ -111,7 +110,7 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_R_Vs_PileupMultiplier_Canv}
-        \caption{T-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm.}
+        \caption{T-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm per unit multiplier.}
     \end{subfigure}
 
     \begin{subfigure}[t]{0.45\textwidth}
@@ -123,9 +122,9 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupMultiplier_Canv}
-        \caption{R-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm.}
+        \caption{R-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm per unit multiplier.}
     \end{subfigure}
-\caption[Pileup multiplier scan]{Pileup multiplier scan. Data are from the 9d dataset.}
+\caption[Pileup multiplier scan]{Pileup multiplier scan. The width of the parabola is determined as the change in X which increases the \chisq by one, which is equal to $1/\sqrt{p_{2}}$. Data are from the 9d dataset.}
 \label{fig:PMscan}
 \end{figure}
 
