@@ -133,9 +133,8 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
 \clearpage
 \subsection{Time Model}
 
-The time of a constructed doublet in the pileup construction is set as the energy weighted time of the two singlets plus half the gap time. Previously the uncertainty was calculated by scanning over an additional time shift and then applying a conservative uncertainty of \ns{2.5}. The results of such a scan can be seen in \figref{fig:PTSscan}. If this procedure is used then the systematic uncertainty on \R is less than 15 ppb for all datasets.
+The time of a constructed shadow doublet in the pileup construction is set as the energy weighted time of the two singlets plus half the gap time, as shown in \equref{eq:tdoublet}. Previously the uncertainty was calculated by scanning over an additional time-shift parameter and then applying a conservative uncertainty of \ns{2.5} \cite{phdthesis:2020Kinnaird}. The results of such a scan can be seen in \figref{fig:PTSscan}. If this procedure is used then the systematic uncertainty on \R is less than 15~ppb for all datasets. If the most energetic singlet time is set as the doublet time instead, then the $\Delta R$ is less than \ppb{1} for all datasets. Lastly, if the doublet time is set as either the first singlet time, or the second singlet time, then the $\Delta R$'s range approximately from 5--6~ppb, as shown in \tabref{tab:systematicError_clusterTime}. This last approach bounds the possibilities for properly constructed doublet times, and is less conservative than the first approach described, therefore the systematic uncertainty is taken as the average of the absolute values of the two \DR values when using the first and last singlet times. The final systematic uncertainties are also given in \tabref{tab:systematicError_clusterTime} in bold.
 
-That is however a pretty conservative approach. If I instead use the most energetic singlet time as the doublet time, then the $\Delta R$ is less than \ppb{1} for all datasets. If I instead set the doublet time as either the first singlet time, or the second singlet time, then the $\Delta R$'s are given in \tabref{tab:systematicError_clusterTimeDeltas} and range around 5-6~ppb. I take as my systematic uncertainty half this range for all datasets. The final systematic uncertainties are given in \tabref{tab:systematicError_clusterTimeModel}.
 
 
 
@@ -144,15 +143,15 @@ That is however a pretty conservative approach. If I instead use the most energe
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_Chi2_Vs_PileupTimeShift_Canv}
-        \caption{T-Method \chisq versus pileup time shift. There is no clear minimum.}
+        \caption{T-Method \chisq versus pileup time shift. There is no clear parabolic shape or minimum.}
     \end{subfigure}% %you need this % here to add spacing between subfigures
     \hspace{1cm}
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{TMethod_R_Vs_PileupTimeShift_Canv}
-        \caption{T-Method $R$ versus pileup time shift. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup time shift, with units in ppm.}
+        \caption{T-Method $R$ versus pileup time shift. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup time shift, with units in ppm per ns.}
     \end{subfigure}
-\caption[Pileup time shift scan]{Pileup time shift scan for the T-Method. The R-Method plots look the same. Data are from the 9d dataset.}
+\caption[Pileup time shift scan]{Pileup time shift scan for the T-Method. The R-Method plots look the same. There is a wave in the \R plot, but the effect is small and therefore ignored. Data are from the 9d dataset.}
 \label{fig:PTSscan}
 \end{figure}
 
@@ -160,44 +159,69 @@ That is however a pretty conservative approach. If I instead use the most energe
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.85\linewidth}{@{\extracolsep{\fill}}XYYYY}
+\begin{tabularx}{0.9\linewidth}{@{\extracolsep{\fill}}XHHPHHP}
   \hline
-    \multicolumn{5}{c}{$\Delta R$ with first and last singlet times} \\
+    \multicolumn{7}{c}{Time Model Systematic Uncertainty} \\
   \hline\hline
-            & \multicolumn{2}{c}{T-Method} & \multicolumn{2}{c}{R-Method } \\
-            \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-    Dataset & \thead{First Time} & \multicolumn{1}{c}{Last Time} & \thead{First Time} & \thead{Last Time}  \\
+            & \multicolumn{3}{c}{T-Method} & \multicolumn{3}{c}{R-Method } \\
+            \cmidrule(lr){2-4}\cmidrule(lr){5-7}
+    Dataset & \thead{First Time} & \thead{Last Time} & \thead{\dR} & \thead{First Time} & \thead{Last Time} & \thead{\dR} \\
   \hline
-    60h & -5.5 & 4.6 & -8.0 & 4.8 \\
-    HighKick & -5.0 & 4.3 & -5.6 & 4.0 \\
-    9d & -5.4 & 5.6 & -5.8 & 5.4 \\ 
-    Endgame & -4.5 & 4.4 & -5.2 & 4.3 \\
+    60h & -5.5 & 4.6 & 5.1 & -8.0 & 4.8 & 6.4 \\
+    HighKick & -5.0 & 4.3 & 4.6 & -5.6 & 4.0 & 4.8 \\
+    9d & -5.4 & 5.6 & 5.5 & -5.8 & 5.4 & 5.6 \\ 
+    Endgame & -5.5 & 4.4 & 5.0 & -5.2 & 4.3 & 4.8 \\
   \hline
 \end{tabularx}
-\caption[]{$\Delta R$ when applying the two singlet times as the doublet times. Units are in ppb.}
-\label{tab:systematicError_clusterTimeDeltas}
+\caption[]{$\Delta R$s when applying either of the two singlet times as the doublet time in the pileup construction, and associated systematic uncertainties calculated as the average of the absolute value of the two values. Units are in ppb.}
+\label{tab:systematicError_clusterTime}
 \end{table}
 
 
 
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.65\linewidth}{@{\extracolsep{\fill}}XYY}
-  \hline
-    \multicolumn{3}{c}{\textbf{Time Model Systematic Uncertainty}} \\
-  \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
-  \hline
-    60h & 5.1 & 6.4 \\
-    HighKick & 4.6 & 4.8 \\
-    9d & 5.5 & 5.6 \\ 
-    Endgame & 5.0 & 4.8 \\
-  \hline
-\end{tabularx}
-\caption[]{Systematic uncertainty due to cluster time model. Units are in ppb.}
-\label{tab:systematicError_clusterTimeModel}
-\end{table}
+% \begin{table}[h]
+% \centering
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabularx}{0.9\linewidth}{@{\extracolsep{\fill}}XYYYY}
+%   \hline
+%     \multicolumn{5}{c}{$\Delta R$ with First and Last Singlet Times} \\
+%   \hline\hline
+%             & \multicolumn{2}{c}{T-Method} & \multicolumn{2}{c}{R-Method } \\
+%             \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+%     Dataset & \thead{First Time} & \multicolumn{1}{c}{Last Time} & \thead{First Time} & \thead{Last Time}  \\
+%   \hline
+%     60h & -5.5 & 4.6 & -8.0 & 4.8 \\
+%     HighKick & -5.0 & 4.3 & -5.6 & 4.0 \\
+%     9d & -5.4 & 5.6 & -5.8 & 5.4 \\ 
+%     Endgame & -4.5 & 4.4 & -5.2 & 4.3 \\
+%   \hline
+% \end{tabularx}
+% \caption[]{$\Delta R$ when applying either of the two singlet times as the doublet time in the pileup construction. Units are in ppb.}
+% \label{tab:systematicError_clusterTimeDeltas}
+% \end{table}
+
+
+
+
+
+% \begin{table}[h]
+% \centering
+% \renewcommand{\arraystretch}{1.2}
+% \begin{tabularx}{0.5\linewidth}{@{\extracolsep{\fill}}XYY}
+%   \hline
+%     \multicolumn{3}{c}{\textbf{Time Model Systematic Uncertainty}} \\
+%   \hline\hline
+%     Dataset & \thead{T-Method} & \thead{R-Method} \\
+%   \hline
+%     60h & 5.1 & 6.4 \\
+%     HighKick & 4.6 & 4.8 \\
+%     9d & 5.5 & 5.6 \\ 
+%     Endgame & 5.0 & 4.8 \\
+%   \hline
+% \end{tabularx}
+% \caption[]{Systematic uncertainty due to cluster time model. Units are in ppb.}
+% \label{tab:systematicError_clusterTimeModel}
+% \end{table}
 
 
 
