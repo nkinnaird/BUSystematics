@@ -6,11 +6,16 @@
 \section{CBO}
 
 
-- need to introduce the cbo a little bit here, and just mention where the systematic uncertainties come from
+Beam dynamics terms, specifically relating to the radial coherent betatron oscillation (CB), are included in the fits to the data. Uncertainties in various pieces of the CBO model will contribute to the systematic uncertainties on \R. The main sources of systematic uncertainty arise from the changing frequency and decoherence envelope models. Additional sources of uncertainty arise from time constants used in the fit terms.
 
 
-\subsection{Frequency Change}
+- might want to introduce the actual fit terms used in the data, or at least point to them in my thesis - need to do this to introduce the time constants and frequency and forms better
 
+
+\subsection{Frequency Model}
+
+
+The frequency changes because...
 
 The systematic uncertainty due to the fixed CBO frequency model is calculated as the \DR with the Tracker Station 12 vs Tracker Station 18 parameters. These parameters are given in \refref{CBOFreqTrackingElog}, and the Endgame parameters are shown in \figref{fig:CBOFreq}. \tabref{tab:systematicError_CBOFreq} gives the systematic uncertainties.
 
@@ -113,7 +118,7 @@ might want to include figure of amplitude shape like in thesis showing the C con
 
 
 \clearpage
-\subsection{Time Constants}
+\subsection{Time Constants in Terms}
 
 In the fit function the N, asymmetry, and phase terms all have CBO modifications to them, where there are new cbo amplitude and phase paramters for each parameter. The lifetime is typically fixed to be the same in all cases. However it has been claimed that the CBO lifetime on the asymmetry and phase CBO terms could be as much as 50\% different from that of the N term. In order to evaluate a systematic uncertainty due to this possibility, fits were redone by applying multipliers of 0.5 and 1.5 in the various combinations to the respective lifetimes, for a total of 4 new fits for each dataset. The maximum \DR seen from any of the combinations was then taken as the systematic uncertainty on \R. Typically the combinations of 0.5 and 1.5 produced the largest changes, as opposed to both being 0.5 or 1.5.
 
