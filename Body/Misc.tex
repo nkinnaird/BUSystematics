@@ -4,14 +4,39 @@
 
 \section{Miscellaneous}
 
+Beyond the main categories of systematic uncertainties described previously in this document, there are a few other sources of systematic uncertainty. These include uncertainties relating to time assignment for clusters, construction of the ratio in the R-Method, and a pseudo-systematic uncertainty relating to the error on the mean \R value from fits to many random seeds. 
 
-- give a short intro to this section
+
+\subsection{Clock and Timing Uncertainties}
+
+Positrons incident on the calorimeters are assigned hit times which directly correspond to the extracted \wa frequency. Uncertainties in this time assignment owing to clock parameters have been estimated by D. Sweigart to be very small \cite{phdthesis:2020Sweigart}. Uncertainty in the time assignment from other sources was bounded conservatively at 1~ppb \cite{UncertaintySpreadsheet}. \tabref{tab:clockErrs} gives these systematic uncertainties, where the uncertainties are the same for all datasets and fit methods. 
+
+
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular*}{0.5\linewidth}{@{\extracolsep{\fill}}lH}
+  \hline
+    \multicolumn{2}{c}{\textbf{Clock and Timing Uncertainties}} \\
+  \hline
+    Quantity & \thead{\dR} \\
+  \hline
+    Input Clock Stability & 0.1 \\
+    Input Clock Upconversion Factor & 2.1 \\
+    Cluster Time Assignment & 1.0 \\
+  \hline 
+\end{tabular*}
+\caption[]{Systematic uncertainties arising from clock and timing sources. Units are in ppb. }
+\label{tab:clockErrs}
+\end{table}
+
+
 
 
 \subsection{Ratio Construction Systematic Uncertainties}
 
-In the Ratio Method the \gmtwo period and the muon lifetime are taken to be known a priori. If the parameters are incorrectly chosen then it is possible there will be a systematic shift on \R. See Section 5.5.5 in \refref{phdthesis:2020Kinnaird} for a full description of the techniques used to estimate the sensitivities of \R to these two parameters, and the expected uncertainties in the parameters. The uncertainties on the period and lifetime are \SI{21.7}{ppm} and \SI{<10}{ns} respectively, and the sensitivities in the various datasets are given in \tabref{tab:ratioConstructionParsScan}. Multiplying the sensitivities to the \gmtwo period by the uncertainty, the systematic Uncertainties are 0.7, 2.3, 0.9, and \ppb{1.0} for the 60h, HighKick, 9d, and Endgame datasets respectively. Since there is no reason the datasets should treat this parameter differently, the largest number at 2.3 ppb is taken as the systematic uncertainty for all datasets. Regarding the systematic uncertainty for the choice of muon lifetime, the slopes are so small and the uncertainty on the lifetime is so small such that the systematic uncertainty is completely negligible, and is taken to be 0 for all datasets.
-
+In the R-Method the \gmtwo period and the muon lifetime are taken to be known a priori when constructing the ratio (since the cluster times need to be shifted by half a \gmtwo period and weighted accordingly). If the parameters are incorrectly chosen then it is possible there will be a systematic shift on \R. The sensitivities of the extracted \R values in the R-Method fits are determined in the usual way by scanning over the related parameters and refitting for \R. The uncertainties on the period and lifetime are conservatively \SI{21.7}{ppm} and \SI{<10}{ns} respectively, Section 5.5.5 \cite{phdthesis:2020Kinnaird}. \tabref{tab:ratioConstructionParsScan} gives the sensitivities for the four Run~1 datasets for the two parameters. Multiplying the sensitivities to the \gmtwo period by the uncertainty, the systematic uncertainties are 0.7, 2.3, 0.9, and \ppb{1.0} for the 60h, HighKick, 9d, and Endgame datasets respectively. Since there is no reason the datasets should treat this parameter differently, the largest number at \textbf{2.3~ppb} is taken as the systematic uncertainty for all datasets. Regarding the systematic uncertainty for the choice of muon lifetime, the sensitivities are so small and the uncertainty on the lifetime is so small such that the systematic uncertainty is completely negligible, and is conservatively taken to be 0.1 for all datasets.
 
 
 \begin{table}[h]
@@ -30,39 +55,9 @@ In the Ratio Method the \gmtwo period and the muon lifetime are taken to be know
     Endgame & & 0.044 & 1.705 \\
   \hline
 \end{tabular*}
-\caption[Sensitivities of $R$ to ratio construction parameters]{Sensitivities of $R$ to ratio construction parameters. $dR/d_{T_{a}}$ is in units of ppb/ppm, while $dR/d_{\tau_{\mu}}$ is in units of \SI{}{ppb/ \micro s}. In both cases the sensitivities are extremely small.}
+\caption[]{Sensitivities of $R$ to ratio construction parameters. $dR/d_{T_{a}}$ is in units of ppb/ppm, while $dR/d_{\tau_{\mu}}$ is in units of \SI{}{ppb/ \micro s}. In both cases the sensitivities are extremely small.}
 \label{tab:ratioConstructionParsScan}
 \end{table}
-
-
-
-
-
-
-\subsection{Clock and Timing Uncertainties}
-
-- not sure what to cite for the 1 ppb cluster time assignment error - pretty sure it's ``bounded at 1 ppb ...''
-
-
-\begin{table}[h]
-\centering
-\setlength\tabcolsep{10pt}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular*}{1\linewidth}{@{\extracolsep{\fill}}lH}
-  \hline
-    \multicolumn{2}{c}{\textbf{Clock and Timing Uncertainties}} \\
-  \hline
-    Quantity & \thead{Value} \\
-  \hline
-    Input Clock Stability & 0.1 \\
-    Input Clock Upconversion Factor & 2.1 \\
-    Cluster Time Assignment & 1.0 \\
-  \hline 
-\end{tabular*}
-\caption[]{clock errors - same for all datasets and methods - David determined clock errors \cite{phdthesis:2020Sweigart}}
-\label{tab:clockErrs}
-\end{table}
-
 
 
 
@@ -70,16 +65,15 @@ In the Ratio Method the \gmtwo period and the muon lifetime are taken to be know
 \subsection{Randomization}
 
 
--what about randomization? probably should talk about that some - not really a systematic error but it is if we want to combine results with someone else
+Before fitting the \wa data, the cluster hit times are randomized by the fast rotation period\footnote{In the BU analysis the times are also randomized by the vertical waist period.}. A fit to data produced by any single random seed is statistically compatible with any other random seed, and therefore no systematic uncertainty is directly produced. However the \wa effort for the experiment requires a combination of results from many different analyzers and fits, for which it is desired that the mean of the distribution of \R values is used. For this reason, a pseudo-systematic uncertainty is estimated and added in to the total systematic uncertainty. While this additional systematic can be sent to 0 with enough random seeds applied to the data, the computation time becomes expensive and infeasible. In the BU analysis fits were performed on 200 different random seeds and placed into a histogram, from which the mean and error on the mean were extracted. The associated uncertainty in the final reported \R values for the different datasets and fits are given in \tabref{tab:systematicError_Rand}. 
 
-- 200 random seeds
 
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{\linewidth}{@{\extracolsep{\fill}}XYY}
+\begin{tabularx}{0.5\linewidth}{@{\extracolsep{\fill}}XYY}
   \hline
-    \multicolumn{3}{c}{\textbf{Systematic Error due to Randomization}} \\
+    \multicolumn{3}{c}{\textbf{Randomization Uncertainty}} \\
   \hline\hline
     Dataset & \thead{T-Method} & \thead{R-Method} \\
   \hline
@@ -90,6 +84,6 @@ In the Ratio Method the \gmtwo period and the muon lifetime are taken to be know
     Endgame at \mus{50} & 12.3 & 13.7 \\
   \hline
 \end{tabularx}
-\caption[]{Units are in ppb.}
+\caption[]{Uncertainties on the mean extracted \R values from fits to 200 different random seeds. Units are in ppb.}
 \label{tab:systematicError_Rand}
 \end{table}
