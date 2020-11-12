@@ -5,7 +5,7 @@
 \section{Gain}
 
 
-Detected positon energies are corrected for in-fill, short-term, and out-of-fill gain corrections (IFG, STDP, OOF) \cite[and references therein]{GainNote}. A laser system was used to determine these corrections and the parameters associated with them. Uncertainties in the IFG and STDP correction parameters propagate into uncertainties on the extracted \wa values\footnote{The OOF correction acts on time scales much larger than a fill, and so does not add a systematic uncertainty.}. Lastly and separately, a systematic uncertainty was evaluated in regards to the possible need for a residual or ad-hoc gain correction.
+Detected positron energies are corrected for in-fill, short-term, and out-of-fill gain corrections (IFG, STDP, OOF) \cite[and references therein]{GainNote}. A laser system was used to determine these corrections and the parameters associated with them. Uncertainties in the IFG and STDP correction parameters propagate into uncertainties on the extracted \wa values\footnote{The OOF correction acts on time scales much larger than a fill, and so does not add a systematic uncertainty.}. Lastly and separately, a systematic uncertainty was evaluated in regards to the possible need for a residual or ad-hoc gain correction.
 
 
 
@@ -153,7 +153,7 @@ The systematic uncertainties relating to the IFG amplitude and time constant par
 \subsection{STDP}
 
 
-The systematic uncertainty due to the STDP correction was evaluated by turning the STDP correction entirely off before reclustering the hits and refitting the data. The change in \R, \DR, was multiplied by the uncertainty in the STDP amplitude as given in \tabref{tab:gainCorrErrs} to determine the systematic uncertainty. The Run~1 analysis did not have the capability to scan over the STDP parameters as was done for the IFG, hence the single point chosen with an amplitude of 0\footnote{This has been fixed for future analyses.}. It should be noted that because of the nature of how the randomization is applied in the BU analysis, the change in \R was completely disassociated from any randomization effects, and is solely due to the change in gain. \tabref{tab:systematicError_STDP} gives the \DR's with the STDP turned off, along with the systematic uncertainties for the four datasets and both fit methods. As shown the systematic uncertainties are entirely negligible at less than 1~ppb. Because the systematic uncertainties were so small, a systematic uncertainty regarding the STDP time constant was not evaluated.
+The systematic uncertainty due to the STDP correction was evaluated by turning the STDP correction entirely off before re-clustering the hits and refitting the data. The change in \R, \DR, was multiplied by the uncertainty in the STDP amplitude as given in \tabref{tab:gainCorrErrs} to determine the systematic uncertainty. The Run~1 analysis did not have the capability to scan over the STDP parameters as was done for the IFG, hence the single point chosen with an amplitude of 0\footnote{This has been fixed for future analyses.}. It should be noted that because of the nature of how the randomization is applied in the BU analysis, the change in \R was completely disassociated from any randomization effects, and is solely due to the change in gain. \tabref{tab:systematicError_STDP} gives the \DR's with the STDP turned off, along with the systematic uncertainties for the four datasets and both fit methods. As shown the systematic uncertainties are entirely negligible at less than 1~ppb. Because the systematic uncertainties were so small, a systematic uncertainty regarding the STDP time constant was not evaluated.
 
 
 \begin{table}[h]
@@ -179,7 +179,7 @@ The systematic uncertainty due to the STDP correction was evaluated by turning t
                              & R & 5.0 & 0.1 \\
   \hline
 \end{tabularx}
-\caption[]{Changes in \R with versus without the STDP effect applied for both fit methods for all four datasets, along with the associated systematic uncertainties. These uncertainties were evalued by multiplying the \DR's by the error on the STDP amplitude parameters as given in \tabref{tab:gainCorrErrs}. Units are in ppb.}
+\caption[]{Changes in \R with versus without the STDP effect applied for both fit methods for all four datasets, along with the associated systematic uncertainties. These uncertainties were evaluated by multiplying the \DR's by the error on the STDP amplitude parameters as given in \tabref{tab:gainCorrErrs}. Units are in ppb.}
 \label{tab:systematicError_STDP}
 \end{table}
 
@@ -248,7 +248,7 @@ By applying this residual gain correction to the cluster energies with the right
         \includegraphics[width=\textwidth]{FullRatio_R_Vs_AdHocAmplitude_Canv}
         \caption{R-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm per unit amplitude.}
     \end{subfigure}
-\caption[]{Residual gain amplitude scan. The \chisq for the R-Method is less sensitive to the residual gain correction than that for the T-Method, hence the lack of a clear parabolic shape. However, the sensitivity of the two methods is comparable, oweing to the fact that the \wa component in the residual gain correction affects both datasets more or less equally. Data are from the 60h dataset.}
+\caption[]{Residual gain amplitude scan. The \chisq for the R-Method is less sensitive to the residual gain correction than that for the T-Method, hence the lack of a clear parabolic shape. However, the sensitivity of the two methods is comparable, owing to the fact that the \wa component in the residual gain correction affects both datasets more or less equally. Data are from the 60h dataset.}
 \label{fig:AdHocGainScan}
 \end{figure}
 
