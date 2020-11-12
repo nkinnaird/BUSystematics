@@ -3,16 +3,33 @@
 \section{Total Uncertainty}
 
 
-
-Include total error table here of just my errors (not everybody elses)
-
-- probably include one line which is the error if all the errors were uncorrelated
-
-- include a reference to David's combination note \cite{CombinationNote} - Table 3 
-- potentially include a reference to the uncertainty spreadsheet \cite{UncertaintySpreadsheet}
+\tabref{tab:totalErrs} contains all systematic uncertainties evaluated in the BU Run~1 \wa analysis for the T- and R-Method fits. Included at the bottom of the table is the total combined systematic uncertainty for each of the datasets and fits, where the combination was done assuming the systematic uncertainties were 100\% correlated within each of the various categories (gain, pileup, etc.), and 0\% correlated among the different categories. As shown the total systematic uncertainties range from 48--94~ppb depending on the dataset and fit method, and the systematic uncertainty for the R-Method is less than that of the T-Method for each dataset. This information is included in the final accumulated systematic uncertainty spreadsheet for all Run~1 analyzers \cite{UncertaintySpreadsheet} as well as the combination note that D. Sweigart wrote after performing combination studies \cite{CombinationNote}. \tabref{tab:FinalRValues} gives the final, commonly-blinded, \R values along with their statistical and systematic uncertainties, rounded to the nearest 0.01~ppm\footnote{This is the precision to which the results will be quoted in the Run~1 publications.}. As shown the systematic uncertainties in each case are significantly smaller than the statistical uncertainties.
 
 
-- make sure this table includes the same information as all the previous ones, and same names for error categories, etc.
+For Run~1 the treatment described throughout this document is sufficient considering the dominance of the statistical uncertainties. For Run~2 and onwards it may be necessary to reduce the systematic uncertainties however possible. For pileup, the implementation of a new correction method with spatial separation, more akin to that which D. Sweigart developed \cite{phdthesis:2020Sweigart}, will significantly reduce the associated systematic uncertainties. For gain, the BU analysis code has been ported into the \textit{art} data processing framework in order to facilitate improved scanning over various parameters. Beyond that there are potential opportunities to model the CBO in a better way, remove the need for random seeds entirely, and more. Whatever the final limits on the available systematic uncertainty budget, they can certainly be reached.
+
+
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{0.6\textwidth}{@{\extracolsep{\fill}}Xcc}
+  \hline
+    \multicolumn{3}{c}{\textbf{Final \R Values}} \\
+  \hline\hline
+    Dataset & \thead{T-Method} & \thead{R-Method} \\
+  \hline
+    60h      & $-28.80 \pm 1.36 \pm 0.09$ & $-28.97 \pm 1.36 \pm 0.06$ \\
+    HighKick & $-27.04 \pm 1.16 \pm 0.06$ & $-27.21 \pm 1.16 \pm 0.05$ \\
+    9d       & $-27.92 \pm 0.93 \pm 0.07$ & $-27.92 \pm 0.93 \pm 0.05$ \\ 
+    Endgame  & $-27.70 \pm 0.76 \pm 0.08$ & $-27.77 \pm 0.76 \pm 0.05$ \\
+  \hline
+\end{tabularx}
+\caption[]{Final \R values and associated uncertainties for the T- and R-Method fits done in the BU Run~1 \wa analysis. The \R values are commonly blinded, and are the reported means from fits to 200 random seeds. The reported uncertainties are statistical and then systematic. As shown the systematic uncertainties are significantly smaller than the statistical. Units are in ppm, with values rounded to nearest 0.01~ppm.}
+\label{tab:FinalRValues}
+\end{table}
+
+
 
 \begin{landscape}
 \begin{table}
@@ -60,34 +77,16 @@ Include total error table here of just my errors (not everybody elses)
   \hdashline
     Time Randomization Seed      	   &  20.2 & 22.5 & 19.1 & 20.1 & 16.0 & 18.1 & 12.3 & 13.7 \\
   \hline
-    Total Error & 94.0 & 63.0 & 63.0 & 51.0 & 73.0 & 53.0 & 75.0 & 48.0 \\
+    Total Systematic Uncertainty & 94.0 & 63.0 & 63.0 & 51.0 & 73.0 & 53.0 & 75.0 & 48.0 \\
   \hline 
 \end{tabular*}
-\caption[]{total errors \cite{CombinationNote} for T and R methods, numbers for EG taken from the 50 us fits, small numbers rounded up to 0.1, the last row is the total error, assuming 100\% correlation between systematic errors in the various categories, \cite{CombinationNote} table 3, rounded to nearest ppb}
+\caption[]{Total systematic uncertainties for the T- and R-Method fits done in the BU Run~1 \wa analysis. The systematic uncertainties for the EG dataset are those taken from the fits with fit start times near \mus{50}. The final row in the table is the total systematic uncertainty, assuming 100\% correlation between systematic uncertainties in the same category, and 0\% correlation in different categories. Units are in ppb, and the final row is rounded to the nearest 1.0~ppb.}
 \label{tab:totalErrs}
 \end{table}
 \end{landscape}
 
 
 
-\begin{table}
-\centering
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{0.8\textwidth}{@{\extracolsep{\fill}}Xcc}
-  \hline
-    \multicolumn{3}{c}{\textbf{Final R Values}} \\
-  \hline\hline
-    Dataset & \thead{T-Method} & \thead{R-Method} \\
-  \hline
-    60h      & $-28.80 \pm 1.36 \pm 0.09$ & $-28.97 \pm 1.36 \pm 0.06$ \\
-    HighKick & $-27.04 \pm 1.16 \pm 0.06$ & $-27.21 \pm 1.16 \pm 0.05$ \\
-    9d       & $-27.92 \pm 0.93 \pm 0.07$ & $-27.92 \pm 0.93 \pm 0.05$ \\ 
-    Endgame  & $-27.70 \pm 0.76 \pm 0.08$ & $-27.77 \pm 0.76 \pm 0.05$ \\
-  \hline
-\end{tabularx}
-\caption[]{Units are in ppm, values rouned to nearest 0.01 ppm. Commonly blinded, statistical then systematic, EG at 50 us, differences in R value can be from different field values, systematic errors small, R method errors smaller than T method errors}
-\label{tab:FinalRValues}
-\end{table}
 
 
 
