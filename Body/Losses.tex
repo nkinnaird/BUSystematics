@@ -5,7 +5,7 @@
 \section{Muon Losses}
 
 
-Muon losses are accounted for in the fits to data by looking for triple coincidences with a $\Delta t$ close to \ns{6.25} and an energy deposition near 170~\MeV, indicative of MIP-like muon incidences on the calorimeters. Sections~5.3.3 and 5.5.4 of \refref{phdthesis:2020Kinnaird} describe the construction of the lost muon term and details on the estimation of the associated systematic uncertainties respectively. In general the triples are formed using the cuts listed in \tabref{tab:lostmuoncuts}, and then quadruples and accidentals are subtracted for a purer sample of triples\footnote{In the case of the quadruples, the two constituent triples are subtracted.}. Systematic uncertainties are then estimated by varying these cuts and observing the changes in \R. In general the systematic uncertainties from muon loss parameters are practically negligible. The only exception is the muon loss phase-momentum correlation systematic, where losses with correlated momenta and phases lead to a pull on the extracted \wa frequency. A full study and calculation of the effect can be found in \refref{MuonLossPhase}, where the corrections and associated errors are $\mathcal{O}(10)$~ppb.
+Muon losses are accounted for in the fits to data by looking for triple coincidences with a $\Delta t$ close to \ns{6.25} and an energy deposition near 170~\MeV, indicative of MIP-like muon incidences on the calorimeters. Sections~5.3.3 and 5.5.4 of \refref{phdthesis:2020Kinnaird} describe the construction of the lost muon term and include details on the estimation of the associated systematic uncertainties respectively. In general the triples are formed using the cuts listed in \tabref{tab:lostmuoncuts}, and then quadruples and accidentals are subtracted for a purer sample of triples\footnote{In the case of the quadruples, the two constituent triples are subtracted.}. Systematic uncertainties are then estimated by varying these cuts and observing the changes in \R. In general the systematic uncertainties from muon loss parameters are practically negligible. The only exception is the muon loss phase-momentum correlation systematic, where losses with correlated momenta and phases lead to a pull on the extracted \wa frequency. A full study and calculation of the effect can be found in \refref{MuonLossPhase}, where the corrections and associated errors are $\mathcal{O}(10)$~ppb.
 
 
 
@@ -26,7 +26,7 @@ Muon losses are accounted for in the fits to data by looking for triple coincide
     Time of flight between separated calorimeters & $\Delta t_{13} \leq \SI{14.4}{ns}$ \\
   \hline 
 \end{tabular*}
-\caption[Lost muon cuts]{Lost muon selection cuts. In a triple coincidence the subscripts 1, 2, and 3 correspond to the three calorimeters hit clockwise around the ring.}
+\caption[Lost muon cuts]{Lost muon selection cuts. In a triple coincidence the subscripts 1, 2, and 3 correspond to the three adjacent calorimeters hit clockwise around the ring.}
 \label{tab:lostmuoncuts}
 \end{table}
 
@@ -94,7 +94,7 @@ The R-Method is insensitive to the lost muon term in the fit and cannot converge
 \begin{figure}[h]
     \centering
     \includegraphics[width=.5\textwidth]{FullRatio_R_Vs_kappa_loss_Canv}
-    \caption[Scan over fixed \K in ratio fit]{The sensitivity of \R to the fixed \K parameter. Error bars have been removed from the plot in order to show the trend more clearly. Units are in ppm per unit \K. Data are from the 9d dataset.}
+    \caption[Scan over fixed \K in ratio fit]{The sensitivity of \R to the fixed \K parameter. Error bars have been removed from the plot in order to show the trend more clearly. The $p1$ parameter has units in ppm per unit \K. Data are from the 9d dataset.}
     \label{fig:kappaLossScan}
 \end{figure}
 
