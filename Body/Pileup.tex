@@ -5,7 +5,7 @@
 \clearpage
 \section{Pileup}
 
-The pileup correction used in the BU analysis is the asymmetric shadow window method. Extensive details can be found in \refref{phdthesis:2020Kinnaird}; here is given a brief summary. A pileup correction is constructed by looking in ``shadow'' time windows some time after ``trigger'' pulses for trailing shadow pulses. The assumption is that the probability for a pileup event to occur is the same as that to find a shadow pulse trailing a trigger pulse in the right length time window. By looking in all such shadow windows for all trigger pulses and constructing ``shadow doublets,'' a pileup correction is constructed and then applied to the data. The length of the shadow window is called the ``shadow dead time,'' and the gap time between the trigger pulse time and the start of the shadow window is called the ``shadow gap time.''  \tabref{tab:pileupParameters} gives the parameter values for the pileup parameters. The shadow gap time of \ns{10} was chosen to be suitably small such that the event rate was marginally different from the real pileup rate at the trigger pulse time. The shadow dead time of \ns{4.06} was determined by scanning over shadow dead times and finding the value at which the ratio of pileup energies over measured energies in the range \SIrange{3.5}{4.5}{\GeV} was equal to 1, where pileup doublets make up almost the entirety of the counts\footnote{This value of \ns{4.06} is a direct effect of the clustering dead time of 3~cts applied to the Run~1 datasets for ReconWest. With this shadow dead time applied in the procedure, no additional nominal multiplier beyond 1 is applied to the pileup amplitude as was done in the author's dissertation, or other shadow methods.}. On a separate but important note, in the final analysis no local artificial dead time was applied to the incoming clusters. This is in comparison to the analysis done for the dissertation in which an artificial dead time of \ns{5} was applied to the incoming clusters \cite{phdthesis:2020Kinnaird}.
+The pileup correction used in the BU analysis is the asymmetric shadow window method. Extensive details can be found in \refref{phdthesis:2020Kinnaird}; here is given a brief summary. A pileup correction is constructed by looking in ``shadow'' time windows some time after ``trigger'' pulses for trailing shadow pulses. The assumption is that the probability for a pileup event to occur is the same as that to find a shadow pulse trailing a trigger pulse in the right length time window. By looking in all such shadow windows for all trigger pulses and constructing ``shadow doublets,'' a pileup correction is constructed and then applied to the data. The length of the shadow window is called the ``shadow dead time,'' and the gap time between the trigger pulse time and the start of the shadow window is called the ``shadow gap time.''  \tabref{tab:pileupParameters} gives the parameter values for the pileup parameters. The shadow gap time of \ns{10} was chosen to be suitably small such that the event rate was marginally different from the real pileup rate at the trigger pulse time. The shadow dead time of \ns{4.06} was determined by scanning over shadow dead times and finding the value at which the ratio of pileup energies over measured energies in the range \SIrange{3.5}{4.5}{\GeV} was equal to 1, where pileup doublets make up almost the entirety of the counts\footnote{This value of \ns{4.06} is directly correlated with the clustering dead time of 3~cts applied to the Run~1 datasets for ReconWest. With this shadow dead time applied in the procedure, no additional nominal multiplier beyond 1 is applied to the pileup amplitude as was done in the author's dissertation, or as is commonly done in other shadow methods.}. On a separate but important note, in the final analysis no local artificial dead time was applied to the incoming clusters. This is in comparison to the analysis done for the dissertation in which an artificial dead time of \ns{5} was applied to the incoming clusters \cite{phdthesis:2020Kinnaird}.
 
 
 \begin{table}[h]
@@ -23,7 +23,7 @@ The pileup correction used in the BU analysis is the asymmetric shadow window me
     Pileup energy scaling $(C)$ & 1 \\
   \hline
 \end{tabularx}
-\caption[]{}
+\caption[]{Pileup parameters used in the BU asymmetric shadow window approach.}
 \label{tab:pileupParameters}
 \end{table}
 
@@ -49,9 +49,6 @@ The pileup amplitude uncertainty was evaluated by applying multipliers to the am
 where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows the scan results for the 9d dataset. \tabref{tab:pileupMultplierScan} show the scan results and \tabref{tab:systematicError_pileupMultplier} gives the systematic uncertainties for each of the Run~1 datasets.
 
 
-
-
-
 \begin{table}[h]
 \centering
 % \setlength\tabcolsep{10pt}
@@ -75,9 +72,39 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
                              & R & $-269.0$ & 0.035 & 0.958 \\
   \hline
 \end{tabularx}
-\caption[]{Results for pileup amplitude multiplier scans for the four Run~1 datasets for both fit methods. Include are the sensitivities of \R to the pileup multiplier, uncertainty on the amplitude as determined from the width of the \chisq parabolas, and the pileup multiplier for which the \chisq was a minimum. The sensitivities are in units of ppb per unit multiplier (or just ppb), and the rest of the quantities are unit-less.}
+\caption[]{Results for pileup amplitude multiplier scans for the four Run~1 datasets for both fit methods. Included are the sensitivities of \R to the pileup multiplier, uncertainties on the amplitude as determined from the widths of the \chisq parabolas, and the pileup multipliers for which the \chisq was a minimum. The sensitivities are in units of ppb per unit multiplier (or just ppb), and the rest of the quantities are unit-less.}
 \label{tab:pileupMultplierScan}
 \end{table}
+
+
+\begin{figure}[h]
+\centering
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TMethod_Chi2_Vs_PileupMultiplier_Canv}
+        \caption{T-Method \chisq versus pileup multiplier. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TMethod_R_Vs_PileupMultiplier_Canv}
+        \caption{T-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm per unit multiplier.}
+    \end{subfigure}
+
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupMultiplier_Canv}
+        \caption{R-Method \chisq versus pileup multiplier. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
+    \end{subfigure}% %you need this % here to add spacing between subfigures
+    \hspace{1cm}
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupMultiplier_Canv}
+        \caption{R-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm per unit multiplier.}
+    \end{subfigure}
+\caption[Pileup multiplier scan]{Pileup multiplier scan. The width of the parabola is determined as the change in X which increases the \chisq by one, which is equal to $1/\sqrt{p_{2}}$. Data are from the 9d dataset.}
+\label{fig:PMscan}
+\end{figure}
 
 
 \begin{table}[h]
@@ -100,41 +127,10 @@ where $P_{m}$ is the value of the pileup multiplier. \figref{fig:PMscan} shows t
 \end{table}
 
 
-\begin{figure}[h]
-\centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{TMethod_Chi2_Vs_PileupMultiplier_Canv}
-        \caption{T-Method \chisq versus pileup multiplier. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \hspace{1cm}
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{TMethod_R_Vs_PileupMultiplier_Canv}
-        \caption{T-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm per unit multiplier.}
-    \end{subfigure}
-
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatio_Chi2_Vs_PileupMultiplier_Canv}
-        \caption{R-Method \chisq versus pileup multiplier. The parabolic fit equation used was $y = p_{2}(x - p_{1})^{2} + p_{0}.$}
-    \end{subfigure}% %you need this % here to add spacing between subfigures
-    \hspace{1cm}
-    \begin{subfigure}[t]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{FullRatio_R_Vs_PileupMultiplier_Canv}
-        \caption{R-Method $R$ versus pileup multiplier. The parameter $p_{1}$ gives the sensitivity of $R$ to the value of the pileup multiplier, with units in ppm per unit multiplier.}
-    \end{subfigure}
-\caption[Pileup multiplier scan]{Pileup multiplier scan. The width of the parabola is determined as the change in X which increases the \chisq by one, which is equal to $1/\sqrt{p_{2}}$. Data are from the 9d dataset.}
-\label{fig:PMscan}
-\end{figure}
-
-
-
 \clearpage
 \subsection{Time Model}
 
-The time of a constructed shadow doublet in the pileup construction is set as the energy weighted time of the two singlets plus half the gap time, as shown in \equref{eq:tdoublet}. Previously the uncertainty was calculated by scanning over an additional time-shift parameter and then applying a conservative uncertainty of \ns{2.5} \cite{phdthesis:2020Kinnaird}. The results of such a scan can be seen in \figref{fig:PTSscan}. If this procedure is used then the systematic uncertainty on \R is less than 15~ppb for all datasets. If the most energetic singlet time is set as the doublet time instead, then the $\Delta R$ is less than \ppb{1} for all datasets. Lastly, if the doublet time is set as either the first singlet time, or the second singlet time, then the $\Delta R$'s range approximately from 5--6~ppb, as shown in \tabref{tab:systematicError_clusterTime}. This last approach bounds the possibilities for properly constructed doublet times, and is less conservative than the first approach described, therefore the systematic uncertainty is taken as the average of the absolute values of the two \DR values when using the first and last singlet times. The final systematic uncertainties are also given in \tabref{tab:systematicError_clusterTime} in bold.
+The time of a constructed shadow doublet in the pileup construction is set as the energy weighted time of the two singlets plus half the gap time, as shown in \equref{eq:tdoublet}. Previously the uncertainty was calculated by scanning over an additional time-shift parameter and then applying a conservative uncertainty of \ns{2.5} \cite{phdthesis:2020Kinnaird}. The results of such a scan can be seen in \figref{fig:PTSscan}. If this procedure is used then the systematic uncertainty on \R is less than 15~ppb for all datasets. If the most energetic singlet time is set as the doublet time instead, then the $\Delta R$ is less than \ppb{1} for all datasets. Lastly, if the doublet time is set as either the first singlet time, or the second singlet time, then the $\Delta R$'s range approximately from 5--6~ppb, as shown in \tabref{tab:systematicError_clusterTime}. This last approach bounds the possibilities for properly constructed doublet times, and is less conservative than the first approach described. Therefore the systematic uncertainty is taken as the average of the absolute values of the two \DR values when using the first and last singlet times. The final systematic uncertainties are also given in \tabref{tab:systematicError_clusterTime} in bold.
 
 
 
@@ -156,7 +152,7 @@ The time of a constructed shadow doublet in the pileup construction is set as th
 \label{fig:PTSscan}
 \end{figure}
 
-
+\clearpage
 \begin{table}[h]
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -180,55 +176,8 @@ The time of a constructed shadow doublet in the pileup construction is set as th
 
 
 
-% \begin{table}[h]
-% \centering
-% \renewcommand{\arraystretch}{1.2}
-% \begin{tabularx}{0.9\linewidth}{@{\extracolsep{\fill}}XYYYY}
-%   \hline
-%     \multicolumn{5}{c}{$\Delta R$ with First and Last Singlet Times} \\
-%   \hline\hline
-%             & \multicolumn{2}{c}{T-Method} & \multicolumn{2}{c}{R-Method } \\
-%             \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-%     Dataset & \thead{First Time} & \multicolumn{1}{c}{Last Time} & \thead{First Time} & \thead{Last Time}  \\
-%   \hline
-%     60h & -5.5 & 4.6 & -8.0 & 4.8 \\
-%     HighKick & -5.0 & 4.3 & -5.6 & 4.0 \\
-%     9d & -5.4 & 5.6 & -5.8 & 5.4 \\ 
-%     Endgame & -4.5 & 4.4 & -5.2 & 4.3 \\
-%   \hline
-% \end{tabularx}
-% \caption[]{$\Delta R$ when applying either of the two singlet times as the doublet time in the pileup construction. Units are in ppb.}
-% \label{tab:systematicError_clusterTimeDeltas}
-% \end{table}
 
-
-
-
-
-% \begin{table}[h]
-% \centering
-% \renewcommand{\arraystretch}{1.2}
-% \begin{tabularx}{0.5\linewidth}{@{\extracolsep{\fill}}XYY}
-%   \hline
-%     \multicolumn{3}{c}{\textbf{Time Model Systematic Uncertainty}} \\
-%   \hline\hline
-%     Dataset & \thead{T-Method} & \thead{R-Method} \\
-%   \hline
-%     60h & 5.1 & 6.4 \\
-%     HighKick & 4.6 & 4.8 \\
-%     9d & 5.5 & 5.6 \\ 
-%     Endgame & 5.0 & 4.8 \\
-%   \hline
-% \end{tabularx}
-% \caption[]{Systematic uncertainty due to cluster time model. Units are in ppb.}
-% \label{tab:systematicError_clusterTimeModel}
-% \end{table}
-
-
-
-
-
-\clearpage
+% \clearpage
 \subsection{Energy Model}
 
 The energy of the shadow doublet in the pileup construction is calculated nominally as the sum of the two singlets, as shown in \equref{eq:Edoublet}. This is an okay approximation as the reconstruction typically assigns the energy of any pileup pulse as such, especially when the spatial separation is turned off as it is in the ReconWest reconstruction. Previously the systematic uncertainty was determined by scanning over the multiplier $C$ on the energy sum from 0.9 to 1.1, taking the slope as the sensitivity, and then multiplying it by the uncertainty determined as in the pileup amplitude systematic uncertainty evaluation (from the width of the \chisq parabola). An example of such a scan is shown in \figref{fig:PESscan}. It was found that the uncertainties as determined from the \chisq ranged from 3--6.4\% depending on the dataset (going smaller with more statistics), with corresponding systematic uncertainties of 5--20~ppb. While some datasets had clear slopes in \R vs the energy scale multiplier, some did not.
@@ -318,7 +267,7 @@ A systematic uncertainty from the pileup rate estimation arises from the fact th
 \end{align}
 where $N(t)$ is the fit function determined from a T-Method fit to the data. $N^{2}(t)$ is what should have been used when constructing the pileup, as opposed to $N(t-\frac{T_{G}}{2})N(t+\frac{T_{G}}{2})$. The rate uncertainty is shown in Figures~\ref{fig:pileupRateError} and \ref{fig:pileupRateErrorZoomed}.
 
-There are some interesting features to point out from the figures. The pileup rate uncertainty oscillates at \wa and the shape is constant throughout the fill. The black points in the figure come from the nominal fit, where each graph point is calculated and spaced at 149.2/50~ns = 2.984~ns apart. It turns out that there are spikes at the boundaries of the points as defined in the fit function in ROOT. If instead the fit contains 10x the number of points up to 100,000 as shown in the red graph points, the the spikes accordingly shift, and the shape appears to change. This is an effect of the discretization of the points in the ROOT function used to fit the data. The blue points show the average of the black points over a bin width, and as shown lie in line with the red points. Accounting for the discretization then by averaging over the bin width, the pileup rate uncertainty can be determined from the blue curve and is seen to only wander a maximum of 0.005\%, or 0.00005, away from 0. This is a negligible change in the rate, and the systematic uncertainty is thus taken to be 0 ppb for all datasets. Note that even if the maximum of the black curve were to be taken as the rate uncertainty, then it is still less than 0.04\% or 0.0004 and the systematic uncertainty would still be negligible. As a quick aside, if instead a gap time of \SI{149.2}{\ns} were to be used, the pileup rate uncertainty is significantly larger as shown in \figref{fig:pileupRateErrorLarger}, oscillating between -0.7\% and 0.3\%. This plot is comparable to D. Sweigart's dissertation Figure~6.28. Note that spikes can still be seen in the function due to the discretization, though the relative size of them is much smaller than the rest of the curve.
+There are some interesting features to point out from the figures. The pileup rate uncertainty oscillates at \wa and the shape is constant throughout the fill. The black points in the figure come from the nominal fit, where each graph point is calculated and spaced at 149.2/50~ns = 2.984~ns apart. It turns out that there are spikes at the boundaries of the points as defined in the fit function in ROOT. If instead the fit contains 10x the number of points up to 100,000 as shown in the red graph points, the spikes accordingly shift, and the shape appears to change. This is an effect of the discretization of the points in the ROOT function used to fit the data. The blue points show the average of the black points over a bin width, and as shown lie in line with the red points. Accounting for the discretization then by averaging over the bin width, the pileup rate uncertainty can be determined from the blue curve and is seen to only wander a maximum of 0.005\%, or 0.00005, away from 0. This is a negligible change in the rate, and the systematic uncertainty is thus taken to be 0 ppb for all datasets. Note that even if the maximum of the black curve were to be taken as the rate uncertainty, then it is still less than 0.04\% or 0.0004 and the systematic uncertainty would still be negligible. As a quick aside, if instead a gap time of \SI{149.2}{\ns} were to be used, the pileup rate uncertainty is significantly larger as shown in \figref{fig:pileupRateErrorLarger}, oscillating between -0.7\% and 0.3\%. This plot is comparable to D. Sweigart's dissertation Figure~6.28. Note that spikes can still be seen in the function due to the discretization, though the relative size of them is much smaller than the rest of the curve.
 
 
 
@@ -337,7 +286,7 @@ There are some interesting features to point out from the figures. The pileup ra
     \label{fig:pileupRateErrorZoomed}
 \end{figure}
 
-
+\clearpage
 \begin{figure}
     \centering
     \includegraphics[width=.6\textwidth]{PileupRateError_149p2SGT}
@@ -348,10 +297,10 @@ There are some interesting features to point out from the figures. The pileup ra
 
 
 
-\clearpage
+% \clearpage
 \subsection{Unseen Pileup}
 
-A systematic uncertainty arises due to unseen pileup, from those counts with energies smaller than the threshold of the detector systems, which is typically around 50~\MeV. These unseen pulses do not get reconstructed as clusters, but will still contribute to pileup if they hit the detectors at the same time as higher energy pulses. A conservative bound of this effect on \R can be calculated by constructing the pileup such that it ignores pulses below \SI{100}{\MeV}, a value which is twice as high as the expected missed pulse energies. The systematic uncertainties, taken as the \DR values with this alternate procedure in place, are given in \tabref{tab:systematicError_unseenPileup}. If instead the threshold is raised to \SI{200}{\MeV} then the systematic uncertainties range approximately from 10-30 ppb.
+A systematic uncertainty arises due to unseen pileup, from those counts with energies smaller than the threshold of the detector systems, which is typically around 50~\MeV. These unseen pulses do not get reconstructed as clusters, but will still contribute to pileup if they hit the detectors at the same time as higher energy pulses. A conservative bound of this effect on \R can be calculated by constructing the pileup such that it ignores pulses below \SI{100}{\MeV}, a value which is twice as high as the expected missed pulse energies. The systematic uncertainties, taken as the \DR values with this alternate procedure in place, are given in \tabref{tab:systematicError_unseenPileup}. If instead the threshold is raised to \SI{200}{\MeV} then the systematic uncertainties range from approximately 10 to 30~ppb.
 
 
 \begin{table}[h]
@@ -378,13 +327,13 @@ A systematic uncertainty arises due to unseen pileup, from those counts with ene
 \clearpage
 \subsection{Triple Pileup Correction}
 
-Triple pileup is not included in the pileup correction, and therefore introduces a systematic uncertainty. The systematic uncertainty for ignoring the triples is estimated by looking at the $\Delta R$ with and without the doubles correction, multiplied against the rate of triples to doubles. The former can be determined from the slopes of the pileup multiplier scans extrapolated to 0, \tabref{tab:pileupMultplierScan}, while the latter can be approximated by the rate of doubles to singles, \figref{fig:pileupRateFraction}. As shown the fraction of pileup is less than 1\% and decreases throughout the fill. For a conservative approach, the rate is averaged over the first \gmtwo period before multiplying against the \DR value with and without the doubles correction. These rate values are given in \tabref{tab:pileupRates}, along with the maximum rates in the same period. The systematic uncertainties are given in \tabref{tab:systematicError_triplePileupCorrection}. As shown the systematic uncertainties are $\mathcal{O}(1)$~ppb, and even these small numbers are conservative since the rate drops throughout the fill, and would drop even faster for triples to doubles.
+Triple pileup is not included in the BU pileup correction, and therefore introduces a systematic uncertainty. The systematic uncertainty for ignoring the triples is estimated by looking at the $\Delta R$ with and without the doubles correction, multiplied against the rate of triples to doubles. The former can be determined from the slopes of the pileup multiplier scans extrapolated to 0, \tabref{tab:pileupMultplierScan}, while the latter can be approximated by the rate of doubles to singles, \figref{fig:pileupRateFraction}. As shown the fraction of pileup is less than 1\% and decreases throughout the fill. For a conservative approach, the rate is averaged over the first \gmtwo period before multiplying against the \DR value with and without the doubles correction. These rate values are given in \tabref{tab:pileupRates}, along with the maximum rates in the same period. The systematic uncertainties are given in \tabref{tab:systematicError_triplePileupCorrection}. As shown the systematic uncertainties are $\mathcal{O}(1)$~ppb, and even these small numbers are conservative since the rate drops throughout the fill.
 
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{pileupRateFraction}
-    \caption[]{Pileup rate fraction plot. Data from the Endgame dataset.}
+    \caption[]{Pileup rate fraction plot, calculated by taking the ratio of the pileup time spectra over the pileup-corrected time spectra for clusters with energies above 1.7~\GeV. Data from the Endgame dataset.}
     \label{fig:pileupRateFraction}
 \end{figure}
 
