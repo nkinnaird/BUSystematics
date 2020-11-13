@@ -21,7 +21,7 @@ where $\omega_{cbo}$ is the fit parameter and the rest of the parameters are fix
 
 \subsection{Frequency Model}
 
-The fixed parameters in \equref{eq:CBOfreqForm} come from the tracking analysis \cite{CBOFreqTrackingElog}, and are shown in \figref{fig:CBOFreq} for the Endgame dataset. These parameters are determined separately for tracker stations 12 and 18, and by default the station 12 parameters are used in the fits. The systematic uncertainty was evaluated by using the tracker station 18 parameters, taking the \DR as the systematic uncertainty. \tabref{tab:systematicError_CBOFreq} gives the systematic uncertainties for the four datasets and both fit methods.
+The fixed parameters in \equref{eq:CBOfreqForm} come from the tracking analysis \cite{CBOFreqTrackingElog}, and are shown in \figref{fig:CBOFreq} for the Endgame dataset. These parameters are determined separately for tracker stations 12 and 18, and by default the station 12 parameters are used in the fits. The systematic uncertainty was evaluated by using the tracker station 18 parameters, and taking the \DR as the systematic uncertainty. \tabref{tab:systematicError_CBOFreq} gives the systematic uncertainties for the four datasets and both fit methods. A less conservative approach which can be used in the future is to use the average of the station 12 and 18 parameters as the values in the fit, and then take as the systematic uncertainties the difference to either of the two stations.
 
 % The HighKick and 9d Ratio results are less affected, presumably because the lifetime is fixed in those fits and there is a correlation.
 
@@ -29,7 +29,7 @@ The fixed parameters in \equref{eq:CBOfreqForm} come from the tracking analysis 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{Run1_EndGame_CBOFreq}
-    \caption[]{CBO frequency parameters for the Endgame dataset as determined in the tracking analysis for station 12 (left) and station 18 (right). The CBO frequency change is due to the slowly changing electrostatic quadrupole voltages over each fill. Plotted is the difference between the cosine argument for the changing frequency and the value it asymptotes to at late times. The frequency fit model includes two exponentials, one with a longer time constant and one with a shorter time constant. Plots courtesy of James Mott.}
+    \caption[]{CBO frequency parameters for the Endgame dataset as determined in the tracking analysis for station 12 (left) and station 18 (right). The CBO frequency change is due to the slowly changing electrostatic quadrupole voltages over each fill. Plotted is the difference between the cosine argument for the changing frequency and the value it asymptotes to at late times. The frequency fit model includes two exponentials, one with a longer time constant and one with a shorter time constant. Plots courtesy of J. Mott.}
     \label{fig:CBOFreq}
 \end{figure}
 
@@ -56,7 +56,7 @@ The fixed parameters in \equref{eq:CBOfreqForm} come from the tracking analysis 
 
 
 
-\clearpage
+% \clearpage
 \subsection{Decoherence Envelope}
 
 
@@ -64,7 +64,7 @@ The decoherence envelope for the CBO was assumed to be a decaying exponential. T
     \begin{align}
         e^{-t/\tau_{cbo}} \rightarrow e^{-t/\tau_{cbo}} + C,
     \end{align}
-which was motivated from the tracking analysis \cite{phdthesis:2020Kinnaird}. The constant $C$ was allowed to float in the fits, and the observed \DR values were then taken as the systematic uncertainties. \tabref{tab:CBOenvConstants} gives the fit results for the $C$ parameters and the associated errors. As shown the relative error on the parameter is typically around 50\% of the amplitude, with cases ranging from 30--90\%. In general the fits were perfectly happy with the additional fit parameter. \tabref{tab:systematicError_CBOenvelope} gives the systematic uncertainties for the different datasets and fit methods. As a quick note, this error was observed to vary significantly both among the different datasets and different analyzers, ranging in the low ppbs up to 40 or 50~ppb depending on the specific analysis. For this reason this systematic uncertainty was re-evaluated for the Endgame dataset at the final fit start time near \mus{50}, and these new numbers are included in both tables. While the fitted constant $C$ did not change significantly, the systematic uncertainty noticeably increased.
+which was motivated from the tracking analysis \cite{phdthesis:2020Kinnaird}. The constant $C$ was allowed to float in the fits, and the observed \DR values were then taken as the systematic uncertainties. \tabref{tab:CBOenvConstants} gives the fit results for the $C$ parameters and the associated errors. As shown the relative error on the parameter is typically around 50\% of the amplitude, with cases ranging from 30--90\%. In general the fits were perfectly happy with the additional fit parameter. \tabref{tab:systematicError_CBOenvelope} gives the systematic uncertainties for the different datasets and fit methods. As a quick note, this error was observed to vary significantly both among the different datasets and different analyzers, ranging in the low ppbs up to 40 or 50~ppb depending on the specific analysis. For this reason this systematic uncertainty was re-evaluated for the Endgame dataset at the final fit start time near \mus{50}, and these new numbers are included in both tables. While the fitted constant $C$ did not change significantly, the systematic uncertainty noticeably increased for the later fit start time.
 
 
 \begin{table}[h]
@@ -124,9 +124,9 @@ which was motivated from the tracking analysis \cite{phdthesis:2020Kinnaird}. Th
 
 
 \clearpage
-\subsection{Time Constants in Terms}
+\subsection{Time Constants in CBO Terms}
 
-As shown in Equations~\ref{eq:Ncbo}, \ref{eq:Acbo}, and \ref{eq:Phicbo}, each CBO term has the same CBO time constant by definition. Simulations showed however that these CBO time constants on the individual $A$ and $\phi$ terms could be as much as 50\% different from the time constant on the leading $N$ term. In order to evaluate a systematic uncertainty from this possibility, fits were redone by applying multipliers of 0.5 and 1.5 in the various combinations to the respective time constants, for a total of four new fits for each dataset. The maximum \DR seen from any of the combinations was then taken as the systematic uncertainty on \R. Tables~\ref{tab:systematicError_CBOtimeconstants_T} and \ref{tab:systematicError_CBOtimeconstants_R} show the results for the T- and R-Methods respectively. As shown, the combinations of the multipliers 0.5 and 1.5 on the asymmetry and phase terms almost always produced the largest differences, the only exception being the HighKick dataset for which the combination of 1.5 and 0.5 on the $A$ and $\phi$ terms produced the largest difference. 
+As shown in Equations~\ref{eq:Ncbo}, \ref{eq:Acbo}, and \ref{eq:Phicbo}, each CBO term has the same CBO time constant by definition. Simulations showed however that these CBO time constants on the individual $A$ and $\phi$ terms could be as much as 50\% different from the time constant on the leading $N$ term. In order to evaluate a systematic uncertainty from this possibility, fits were redone by applying multipliers of 0.5 and 1.5 in the various combinations to the respective time constants, for a total of four new fits for each dataset. The maximum \DR seen from any of the combinations was then taken as the systematic uncertainty on \R. Tables~\ref{tab:systematicError_CBOtimeconstants_T} and \ref{tab:systematicError_CBOtimeconstants_R} show the results for the T- and R-Methods respectively. As shown, the combination of the multipliers 0.5 and 1.5 on the asymmetry and phase terms respectively almost always produced the largest differences.
 
 
 
